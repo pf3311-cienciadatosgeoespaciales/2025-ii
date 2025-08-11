@@ -3,39 +3,4 @@
 
 format: jb-book
 root: index
-parts:
-  - caption: Información sobre el curso
-    chapters:
-    - file: contenido/informacion-general/descripcion-curso
-    - file: contenido/informacion-general/requisitos-curso
-    - file: contenido/informacion-general/cronograma-curso
-    - file: contenido/informacion-general/evaluacion-curso
-    - file: contenido/informacion-general/bibliografia-curso    
-  - caption: A - Introducción
-    chapters:
-    - file: contenido/a/introduccion-ciencia-datos-geoespaciales
-    - file: contenido/a/fundamentos-geodesia-cartografia
-    - file: contenido/a/sistemas-informacion-geografica
-    - file: contenido/a/qgis-sig-escritorio
-    - file: contenido/a/modelos-estandares-datos-geoespaciales
-    - file: contenido/a/software-manejo-datos-geoespaciales
-    - file: contenido/a/gdal-biblioteca-lectura-escritura-datos-geoespaciales    
-  - caption: B - Procesamiento de datos geoespaciales con Python
-    chapters:
-    - file: contenido/b/introduccion-python    
-    - file: contenido/b/resumen-referencia-python    
-    - file: contenido/b/fiona-shapely    
-    - file: contenido/b/introduccion-analisis-datos-python        
-    - file: contenido/b/pandas    
-    - file: contenido/b/geopandas        
-    - file: contenido/b/folium
-    - file: contenido/b/ejemplo-analisis-pandas-geopandas-folium
-  - caption: C - Visualización y análisis avanzados
-    chapters:
-    - file: contenido/c/streamlit
-  - caption: Evaluaciones
-    chapters:
-    - file: contenido/evaluaciones/tarea-01
-    - file: contenido/evaluaciones/tarea-02
-    - file: contenido/evaluaciones/tarea-03
-    - file: contenido/evaluaciones/proyecto
+
