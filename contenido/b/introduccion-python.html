@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción al lenguaje de programación Python &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/b/introduccion-python';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Resumen de referencia de Python" href="resumen-referencia-python.html" />
+    <link rel="prev" title="GDAL: biblioteca para lectura y escritura de datos geoespaciales" href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    PF-3311 Ciencia de datos geoespaciales 2025-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Información sobre el curso</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/descripcion-curso.html">Descripción general, objetivos y metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/requisitos-curso.html">Requisitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/cronograma-curso.html">Cronograma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/evaluacion-curso.html">Evaluación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/bibliografia-curso.html">Bibliografía y otros recursos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introducción</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../a/introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/sistemas-informacion-geografica.html">Sistemas de información geográfica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/modelos-estandares-datos-geoespaciales.html">Modelos y estándares de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/software-manejo-datos-geoespaciales.html">Software para manejo de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html">GDAL: biblioteca para lectura y escritura de datos geoespaciales</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Procesamiento de datos geoespaciales con Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción al lenguaje de programación Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resumen-referencia-python.html">Resumen de referencia de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fiona-shapely.html">Fiona y Shapely: paquetes para lectura, escritura y análisis de datos vectoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion-analisis-datos-python.html">Introducción al análisis de datos con Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">pandas: paquete para análisis y manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">GeoPandas: paquete para agregar capacidades geoespaciales a pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folium.html">folium: paquete para desarrollo de mapas web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-analisis-pandas-geopandas-folium.html">Ejemplo de análisis con pandas, geopandas y folium</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Visualización y análisis avanzados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../c/streamlit.html">Streamlit: marco de trabajo para desarrollo de aplicaciones web de ciencia de datos y aprendizaje automatizado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluaciones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-01.html">Tarea 01 - Elaboración de un mapa en QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-02.html">Tarea 02 - Análisis de datos geoespaciales mediante Fiona y Shapely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-03.html">Tarea 03 - Análisis de datos geoespaciales mediante pandas, plotly, geopandas y folium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/proyecto.html">Proyecto - Desarrollo de tablero de datos en Streamlit</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/issues/new?title=Issue%20on%20page%20%2Fcontenido/b/introduccion-python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contenido/b/introduccion-python.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción al lenguaje de programación Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-lenguaje-de-programacion-python">El lenguaje de programación Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historia">Historia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-caracteristicas-del-lenguaje">Principales características del lenguaje</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenciamiento">Licenciamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-2-y-python-3">Python 2 y Python 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-datos-geoespaciales">Aplicación en datos geoespaciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-desarrollo">Herramientas para desarrollo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-integrados-de-desarrollo">Ambientes integrados de desarrollo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">Instalación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-anaconda-miniconda">Con Anaconda/Miniconda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-de-ejecucion-en-la-nube">Ambientes de ejecución en la nube</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">Referencias bibliográficas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-al-lenguaje-de-programacion-python">
+<h1>Introducción al lenguaje de programación Python<a class="headerlink" href="#introduccion-al-lenguaje-de-programacion-python" title="Link to this heading">#</a></h1>
+<section id="trabajo-previo">
+<h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Link to this heading">#</a></h2>
+<section id="tutoriales">
+<h3>Tutoriales<a class="headerlink" href="#tutoriales" title="Link to this heading">#</a></h3>
+<p>Severance, C. (s. f.). PY4E - Python for Everybody. Recuperado 1 de enero de 2022, de <a class="reference external" href="https://www.py4e.com/">https://www.py4e.com/</a> (Lecciones en <a class="reference external" href="https://www.py4e.com/lessons">https://www.py4e.com/lessons</a>)</p>
+</section>
+</section>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>En este capítulo, se introduce el lenguaje de programación Python.</p>
+</section>
+<section id="el-lenguaje-de-programacion-python">
+<h2>El lenguaje de programación Python<a class="headerlink" href="#el-lenguaje-de-programacion-python" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.python.org/">Python</a> es un lenguaje de programación de propósito general que ha alcanzado una <a class="reference external" href="https://www.infoworld.com/article/3331603/pythons-popularity-surges-as-a-mainstay-language.html">gran popularidad en los últimos años</a>. Fue declarado el lenguaje del año en 2020 y 2021 por el índice <a class="reference external" href="https://www.tiobe.com/tiobe-index/">Tiobe</a> de popularidad de lenguajes de programación, debido al crecimiento de su uso en diversas áreas, entre las que destacan la <a class="reference external" href="https://es.wikipedia.org/wiki/Ciencia_de_datos">ciencia de datos</a> y el <a class="reference external" href="https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico">aprendizaje automatizado</a>, además de otras como desarrollo web, <em>scripting</em> y visualización de datos, entre muchas. Esta popularidad es respaldada por otras fuentes como el índice <a class="reference external" href="http://pypl.github.io/PYPL.html">PYPL</a> y el sitio de preguntas y respuestas para programadores <a class="reference external" href="https://insights.stackoverflow.com/survey/2021#technology-most-popular-technologies">Stack Overflow</a>. Este último lo consideró, en 2017, el <a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/?_ga=2.202250515.367846061.1552160385-2089845565.1546395318">lenguaje de programación de mayor crecimiento en los países de alto ingreso</a>, como se muestra en la <a class="reference internal" href="#figure-crecimiento-lenguajes"><span class="std std-numref">Fig. 24</span></a>.</p>
+<figure class="align-default" id="figure-crecimiento-lenguajes">
+<img alt="../../_images/growth_major_languages.png" src="../../_images/growth_major_languages.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Crecimiento de los principales lenguajes de programación en los países de alto ingreso. Fuente: <span id="id1">[<a class="reference internal" href="#id46" title="David Robinson. The Incredible Growth of Python. September 2017. URL: https://stackoverflow.blog/2017/09/06/incredible-growth-python/ (visited on 2022-01-20).">Rob17</a>]</span>.</span><a class="headerlink" href="#figure-crecimiento-lenguajes" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Python es ampliamente utilizado en enseñanza de la programación. En 2014, era el <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">lenguaje más empleado en cursos introductorios de programación de las principales universidades de Estados Unidos</a>, como puede apreciarse en el gráfico de la <a class="reference internal" href="#figure-lenguajes-universidades"><span class="std std-numref">Fig. 25</span></a>.</p>
+<figure class="align-default" id="figure-lenguajes-universidades">
+<img alt="../../_images/top-languajes-universities.png" src="../../_images/top-languajes-universities.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Lenguajes de programación utilizados en los departamentos de ciencias de la computación de las principales universidades de Estados Unidos. Fuente: <span id="id2">[<a class="reference internal" href="#id47" title="Philip Guo. Python Is Now the Most Popular Introductory Teaching Language at Top ­U.S. ­Universities. July 2014. URL: https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext (visited on 2022-01-20).">Guo14</a>]</span>.</span><a class="headerlink" href="#figure-lenguajes-universidades" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Este uso en enseñanza se debe, entre otras razones, a que los programas en Python son más fáciles de leer y requieren menos líneas de <a class="reference external" href="https://en.wikipedia.org/wiki/Source_code">código fuente</a> que otros lenguajes de amplia difusión, tales como <a class="reference external" href="http://oracle.com/java/">Java</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> o <a class="reference external" href="https://isocpp.org/">C++</a>.</p>
+<section id="historia">
+<h3>Historia<a class="headerlink" href="#historia" title="Link to this heading">#</a></h3>
+<p>Python fue creado por el programador holandés <a class="reference external" href="https://gvanrossum.github.io//">Guido van Rossum</a>, quién concibió el diseño original del lenguaje a finales de la década de 1980 y dio a conocer la primera versión en 1991.</p>
+<p>El nombre del lenguaje es un homenaje al grupo de comedia británico <a class="reference external" href="https://es.wikipedia.org/wiki/Monty_Python">Monty Python</a>. <a class="reference external" href="https://www.python.org/doc/essays/foreword/">Según van Rossum</a>, en diciembre de 1989 buscaba un proyecto de programación como “pasatiempo” durante los días cercanos a la navidad, por lo que decidió escribir un interpretador para un lenguaje de programación en el que había estado pensando recientemente. Escogió el nombre Python por encontrarse en un “humor ligeramente irreverente” y ser un gran aficionado al programa de televisión <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus">“El circo volador de Monty Python” (<em>Monty Python’s Flying Circus</em>)</a> (<a class="reference internal" href="#figure-monty-python"><span class="std std-numref">Fig. 26</span></a>).</p>
+<figure class="align-default" id="figure-monty-python">
+<img alt="../../_images/montypython.jpg" src="../../_images/montypython.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">El circo volador de Monty Python. Fuente: <a class="reference external" href="http://www.imdb.com/title/tt0063929/">Internet Movie Database (IMDB)</a>.</span><a class="headerlink" href="#figure-monty-python" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La “cultura” de Python ocasionalmente hace referencia a Monty Python en tutoriales, ejemplos y otros materiales. Por ejemplo, en el <a class="reference external" href="https://en.wikipedia.org/wiki/Metasyntactic_variable">uso de <em>spam</em>, <em>ham</em> y <em>eggs</em> como variables metasintéticas</a> en sustitución de las tradicionales <a class="reference external" href="https://en.wikipedia.org/wiki/Foobar"><em>foo</em>, <em>bar</em> y <em>baz</em></a>, en alusión al <em>sketch</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> de Monty Python) (<a class="reference external" href="https://www.youtube.com/watch?v=_bW4vEo1F4E">video del <em>sketch</em></a>).</p>
+</section>
+<section id="principales-caracteristicas-del-lenguaje">
+<h3>Principales características del lenguaje<a class="headerlink" href="#principales-caracteristicas-del-lenguaje" title="Link to this heading">#</a></h3>
+<p>La filosofía de diseño de Python enfatiza la importancia de que los programas sean fáciles de leer, de manera que los programadores puedan entender rápidamente su propósito, control de flujo y funcionamiento. Esto facilita el mantenimiento de los programas existentes y disminuye la necesidad de crear otros nuevos.</p>
+<p>Las siguientes son otras características importantes del lenguaje Python:</p>
+<ul class="simple">
+<li><p>Es <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpretado</a>: las instrucciones se traducen una por una a <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">lenguaje máquina</a>, a diferencia de los <a class="reference external" href="https://en.wikipedia.org/wiki/Compiler">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.</p></li>
+<li><p>Tiene un <a class="reference external" href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos. La mayoría de los lenguajes de tipos dinámicos son también lenguajes interpretados.</p></li>
+<li><p>Cuenta con <a class="reference external" href="https://docs.python.org/3/c-api/memory.html">administración automática de memoria</a>: el interpretador se encarga de asignar y administrar la memoria de las variables, sin intervención del programador. Esto incluye un sistema de <a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">recolección de basura</a>, que libera la memoria de las variables que no están siendo utilizadas.</p></li>
+<li><p>Soporta varios <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. En el caso de Python, incluye <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a> y <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</p></li>
+<li><p>Es <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-platform_software">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).</p></li>
+</ul>
+</section>
+<section id="principios-de-diseno">
+<h3>Principios de diseño<a class="headerlink" href="#principios-de-diseno" title="Link to this heading">#</a></h3>
+<p>La filosofía de diseño de Python está resumida en una lista de 19 principios conocida como el <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">Zen de Python</a> que guían el uso del lenguaje. La aplicación de estos principios y el seguimiento de mejores prácticas y de <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_idiom"><em>idioms</em> de programación</a>, como los descritos en <a class="reference external" href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python!</a>, hacen que un programa se considere “pitónico” (<em>pythonic</em>). Los programadores que siguen la filosofía de Python son llamados <a class="reference external" href="https://david.goodger.org/projects/pycon/2007/idiomatic/"><em>pythonists</em>, <em>pythonistas</em> o <em>pythoneers</em></a>.</p>
+<p>Los principios de diseño se reflejan en la <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">guía de estilo para código Python</a>, la cual proporciona una serie de convenciones para la escritura de programas.</p>
+</section>
+<section id="licenciamiento">
+<h3>Licenciamiento<a class="headerlink" href="#licenciamiento" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.python.org/psf/">Python Software Foundation (PSF)</a> es la organización sin fines de lucro que posee los derechos de propiedad intelectual del lenguaje Python y que maneja las licencias de software libre con las que se distribuye. Su misión es <em>“promover, proteger y avanzar el lenguaje de programación Python, así como apoyar y facilitar el crecimiento de una comunidad diversa e internacional de programadores de Python”</em>.</p>
+<p>La implementación de referencia del interpretador de Python, llamada <a class="reference external" href="https://github.com/python/cpython">CPython</a>, es software de <a class="reference external" href="https://en.wikipedia.org/wiki/Open-source_model">código abierto (<em>open source</em>)</a>, lo que facilita que el desarrollo de Python sea conducido por una comunidad de programadores enlazada a través de Internet. Este modelo es seguido por la mayoría de las implementaciones del interpretador de Python. Una muestra muy representativa de este esquema de colaboración es el <a class="reference external" href="https://pypi.python.org">Python Package Index (PyPI)</a>, un repositorio para compartir componentes de software programados con Python, que a la fecha alberga más de 350000 proyectos.</p>
+</section>
+<section id="python-2-y-python-3">
+<h3>Python 2 y Python 3<a class="headerlink" href="#python-2-y-python-3" title="Link to this heading">#</a></h3>
+<p>La versión 3 de Python fue liberada en 2008 y tiene diferencias en su sintaxis que la hacen incompatible con la versión 2. Desde entonces, se recomienda la migración de los programas en Python 2 a Python 3 y el uso de Python 3 para el desarrollo de nuevas aplicaciones. Ya no se brinda soporte oficial para Python 2. La PSF proporciona una <a class="reference external" href="https://docs.python.org/3/howto/pyporting.html">guía oficial para migrar programas de Python 2 a Python 3</a>.</p>
+<p>Este curso se enfoca en Python 3. Cabe destacar que las <a class="reference external" href="https://learntocodewith.me/programming/python/python-2-vs-python-3/#2018-differences-of-python2-vs-3">diferencias de importancia entre ambas versiones son realmente pocas</a> y un programador experimentado en el uso de Python 3 puede entender facilidad un programa en Python 2 y viceversa.</p>
+</section>
+</section>
+<section id="aplicacion-en-datos-geoespaciales">
+<h2>Aplicación en datos geoespaciales<a class="headerlink" href="#aplicacion-en-datos-geoespaciales" title="Link to this heading">#</a></h2>
+<p>Python ha tomado una gran importancia en el área del desarrollo de aplicaciones geoespaciales debido a su popularidad, “suavidad” de la curva de aprendizaje y abundancia de recursos de educación y consulta (ej. tutoriales, libros, listas de correo, foros de discusión). Todas estas son características que, entre otras, lo hacen muy apropiado para programadores que no son especialistas en ciencias de la computación, como es el caso de muchos de los usuarios de sistemas de información geográfica (SIG) y otros tipos de software geoespacial. De hecho, muchas de estas herramientas han seleccionado a <a class="reference external" href="http://www.mdpi.com/2220-9964/2/1/201">Python como el lenguaje de preferencia para que sus usuarios amplíen o configuren la funcionalidad que ofrecen</a>. Como ejemplos, pueden mencionarse las bibliotecas <a class="reference external" href="http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy/what-is-arcpy-.htm">ArcPy</a> para <a class="reference external" href="https://www.arcgis.com/">ArcGIS</a>, <a class="reference external" href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/">PyQGIS</a> para <a class="reference external" href="https://www.qgis.org/">QGIS</a> y <a class="reference external" href="https://grass.osgeo.org/grass70/manuals/libpython/pygrass_index.html">PyGRASS</a> para <a class="reference external" href="https://grass.osgeo.org/">GRASS GIS</a>.</p>
+<p>En la <a class="reference internal" href="#figure-python-gis"><span class="std std-numref">Fig. 27</span></a>, puede observarse como Python es ampliamente utilizado como lenguaje de <em>scripting</em> en software para manejo de datos geoespaciales.</p>
+<figure class="align-default" id="figure-python-gis">
+<img alt="../../_images/python-gis-software.png" src="../../_images/python-gis-software.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Uso de Python en software para manejo de datos geoespaciales. Fuente: <span id="id3">[<a class="reference internal" href="#id48" title="Pietro Zambelli, Sören Gebbert, and Marco Ciolli. Pygrass: An Object Oriented Python Application Programming Interface (API) for Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS). ISPRS International Journal of Geo-Information, 2(1):201–219, March 2013. Number: 1 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/2220-9964/2/1/201 (visited on 2022-01-20), doi:10.3390/ijgi2010201.">ZGC13</a>]</span>.</span><a class="headerlink" href="#figure-python-gis" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="herramientas-para-desarrollo">
+<h2>Herramientas para desarrollo<a class="headerlink" href="#herramientas-para-desarrollo" title="Link to this heading">#</a></h2>
+<p>Hay tres principales tipos de herramientas para desarrollar programas en Python: editores de texto, ambientes integrados de desarrollo y <em>notebooks</em>.</p>
+<section id="editores-de-texto">
+<h3>Editores de texto<a class="headerlink" href="#editores-de-texto" title="Link to this heading">#</a></h3>
+<p>Son editores para cualquier tipo de archivo de texto. Aquí se presentan los que proveen algunas facilidades para la edición de código fuente (ej. colores para diferenciar palabras clave o tabulación automática). Son fáciles de utilizar, pero no aportan mayores facilidades para el proceso de desarrollo. Son apropiados para programas pequeños y de no muy alta complejidad. Algunos de los más populares son:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
+<li><p><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a></p></li>
+<li><p><a class="reference external" href="https://atom.io/">Atom</a></p></li>
+<li><p><a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a></p></li>
+<li><p><a class="reference external" href="http://ex-vi.sourceforge.net/">vi</a>/<a class="reference external" href="https://www.vim.org/">vim</a></p></li>
+</ul>
+</section>
+<section id="ambientes-integrados-de-desarrollo">
+<h3>Ambientes integrados de desarrollo<a class="headerlink" href="#ambientes-integrados-de-desarrollo" title="Link to this heading">#</a></h3>
+<p>Un <a class="reference external" href="https://en.wikipedia.org/wiki/Integrated_development_environment">ambiente integrado de desarrollo (<em>Integrated Development Environment</em> [IDE])</a>, es una aplicación informática que provee soporte integrado al proceso de programación. Típicamente, consiste de un editor de texto para el código fuente, <a class="reference external" href="https://en.wikipedia.org/wiki/Build_automation">herramientas para la construcción de archivos ejecutables</a> y un <a class="reference external" href="https://en.wikipedia.org/wiki/Debugger">depurador (<em>debugger</em>)</a>. Facilitan la elaboración de proyectos de mayor tamaño y complejidad. En el caso de Python, los IDE más populares son:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a></p></li>
+<li><p><a class="reference external" href="https://docs.spyder-ide.org/">Spyder</a></p></li>
+</ul>
+</section>
+<section id="notebooks">
+<h3>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h3>
+<p>Son ambientes virtuales que combinan código fuente con texto, gráficos, videos y otros formatos. Se les considera muy apropiados para aprendizaje. El <em>notebook</em> más popular es el <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>, el cual proporciona una interfaz en ambiente web que permite la elaboración de documentos que permiten la ejecución interactiva de comandos en varios lenguajes (Python, R, Julia y Haskell, entre otros) y su documentación con el lenguaje de marcado <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+<p>La interfaz de un Jupyter Notebook se muestra en la <a class="reference internal" href="#figure-interfaz-jupyter"><span class="std std-numref">Fig. 28</span></a>.</p>
+<figure class="align-default" id="figure-interfaz-jupyter">
+<img alt="../../_images/jupyter-interface.png" src="../../_images/jupyter-interface.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Interfaz de un nuevo Jupyter Notebook.</span><a class="headerlink" href="#figure-interfaz-jupyter" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Un <em>notebook</em> consiste de una secuencia de celdas que pueden llenarse con código fuente o con texto en Markdown, como en el ejemplo de la <a class="reference internal" href="#figure-jupyter-holamundo"><span class="std std-numref">Fig. 29</span></a>.</p>
+<figure class="align-default" id="figure-jupyter-holamundo">
+<img alt="../../_images/jupyter-holamundo.png" src="../../_images/jupyter-holamundo.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Programa <a class="reference external" href="https://es.wikipedia.org/wiki/Hola_mundo">“Hola Mundo”</a> en un Jupyter Notebook.</span><a class="headerlink" href="#figure-jupyter-holamundo" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion">
+<h2>Instalación<a class="headerlink" href="#instalacion" title="Link to this heading">#</a></h2>
+<p>El interpretador de Pyhon puede obtenerse de varias formas. Una de la más usuales es en la <a class="reference external" href="https://www.python.org/downloads/">página de descargas de Python.org</a>, en donde pueden encontrarse instaladores para los diferentes sistemas operativos.</p>
+<section id="con-anaconda-miniconda">
+<h3>Con Anaconda/Miniconda<a class="headerlink" href="#con-anaconda-miniconda" title="Link to this heading">#</a></h3>
+<p>En este curso, se utilizará <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>, una distribución libre y de código abierto de Python y de otras herramientas utilizadas para ciencia de datos, como el lenguaje de programación <a class="reference external" href="https://www.r-project.org/">R</a>. Anaconda simplifica el manejo de paquetes, con sus diferentes versiones y dependencias, y está preconfigurada con más de 1500 paquetes preinstalados, lo que elimina la necesidad de aprender a instalar cada uno individualmente. Anaconda incorpora también el administrador de paquetes <a class="reference external" href="https://conda.io/">Conda</a>. Como alternativa a Anaconda, puede utilizarse <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, un instalador reducido de Anaconda.</p>
+<p>La página de descargas de <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a>/<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> proporciona instaladores para las diferentes versiones de Python y de los sistemas operativos (Windows, macOS, Linux). Luego de descargarse la opción deseada, deben seguirse las instrucciones especificadas en la <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">página de documentación de la instalación</a>.</p>
+<p>Seguidamente, se detalla el procedimiento de <a class="reference external" href="https://gdal.org/download.html#conda">instalación mediante Conda</a>, el cual puede ejecutarse desde Linux, macOS o Windows. <a class="reference external" href="https://conda.io/">Conda</a> es un administrador de paquetes que puede instalarse como parte de <a class="reference external" href="https://anaconda.org/">Anaconda</a> o <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> (se recomienda esta última opción, por requerir menos recursos). Entre otras ventajas, conda permite el manejo de <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">ambientes (<em>environments</em>)</a>, cada uno con sus propias versiones de los paquetes instalados.</p>
+<p>Para instalar Python, Jupyter Notebook, y los módulos necesarios para el desarrollo de aplicaciones geoespaciales, ejecute los siguientes comandos desde una terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualización de conda</span>
+conda<span class="w"> </span>update<span class="w"> </span>conda
+
+<span class="c1"># Creación de un ambiente conda llamado geopython (puede usarse cualquier otro nombre)</span>
+conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>geopython
+
+<span class="c1"># Activación del ambiente</span>
+conda<span class="w"> </span>activate<span class="w"> </span>geopython
+
+<span class="c1"># Configuración del ambiente</span>
+conda<span class="w"> </span>config<span class="w"> </span>--env<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+conda<span class="w"> </span>config<span class="w"> </span>--env<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
+
+<span class="c1"># Instalación de módulos requeridos</span>
+conda<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>python<span class="w"> </span>jupyter<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>plotly<span class="w"> </span>dash<span class="w"> </span>gdal<span class="w"> </span>fiona<span class="w"> </span>shapely<span class="w"> </span>geopandas<span class="w"> </span>rasterio<span class="w"> </span>folium
+
+<span class="c1"># Instalación de módulos opcionales</span>
+conda<span class="w"> </span>install<span class="w"> </span>streamlit
+
+<span class="c1"># Para iniciar la interfaz de Jupyter Notebook</span>
+jupyter<span class="w"> </span>notebook
+
+<span class="c1"># Desactivación del ambiente</span>
+conda<span class="w"> </span>deactivate
+</pre></div>
+</div>
+<p>Una vez instalado el ambiente, puede activarse y desactivarse con <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">geopython</span></code> y <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> respectivamente.</p>
+</section>
+</section>
+<section id="ambientes-de-ejecucion-en-la-nube">
+<h2>Ambientes de ejecución en la nube<a class="headerlink" href="#ambientes-de-ejecucion-en-la-nube" title="Link to this heading">#</a></h2>
+<p>Hay varias plataformas que ofrecen la posibilidad de ejecutar <em>notebooks</em> en la <a class="reference external" href="https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube">nube</a>, como una alternativa a la ejecución en una computadora personal.</p>
+<section id="google-colaboratory">
+<h3>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a> (también llamado <em>Colab</em>) ofrece un ambiente gratuito para ejecutar los <em>notebooks</em> y almacenarlos en <a class="reference external" href="https://drive.google.com/">Google Drive</a>.</p>
+</section>
+<section id="otros">
+<h3>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
+<p>Existen otros ambientes de ejecución en la nube, como <a class="reference external" href="https://mybinder.org/">Binder</a> y <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>.</p>
+</section>
+</section>
+<section id="referencias-bibliograficas">
+<h2>Referencias bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id4">
+<div role="list" class="citation-list">
+<div class="citation" id="id47" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Guo14</a><span class="fn-bracket">]</span></span>
+<p>Philip Guo. Python Is Now the Most Popular Introductory Teaching Language at Top ­U.S. ­Universities. July 2014. URL: <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext</a> (visited on 2022-01-20).</p>
+</div>
+<div class="citation" id="id46" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Rob17</a><span class="fn-bracket">]</span></span>
+<p>David Robinson. The Incredible Growth of Python. September 2017. URL: <a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/">https://stackoverflow.blog/2017/09/06/incredible-growth-python/</a> (visited on 2022-01-20).</p>
+</div>
+<div class="citation" id="id48" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">ZGC13</a><span class="fn-bracket">]</span></span>
+<p>Pietro Zambelli, Sören Gebbert, and Marco Ciolli. Pygrass: An Object Oriented Python Application Programming Interface (API) for Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS). <em>ISPRS International Journal of Geo-Information</em>, 2(1):201–219, March 2013. Number: 1 Publisher: Multidisciplinary Digital Publishing Institute. URL: <a class="reference external" href="https://www.mdpi.com/2220-9964/2/1/201">https://www.mdpi.com/2220-9964/2/1/201</a> (visited on 2022-01-20), <a class="reference external" href="https://doi.org/10.3390/ijgi2010201">doi:10.3390/ijgi2010201</a>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./contenido/b"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GDAL: biblioteca para lectura y escritura de datos geoespaciales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="resumen-referencia-python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Resumen de referencia de Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-lenguaje-de-programacion-python">El lenguaje de programación Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historia">Historia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-caracteristicas-del-lenguaje">Principales características del lenguaje</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenciamiento">Licenciamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-2-y-python-3">Python 2 y Python 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-datos-geoespaciales">Aplicación en datos geoespaciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-desarrollo">Herramientas para desarrollo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-integrados-de-desarrollo">Ambientes integrados de desarrollo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">Instalación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-anaconda-miniconda">Con Anaconda/Miniconda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-de-ejecucion-en-la-nube">Ambientes de ejecución en la nube</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">Referencias bibliográficas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Manuel Vargas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright CC BY-SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
