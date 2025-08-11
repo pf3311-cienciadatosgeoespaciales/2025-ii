@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fiona y Shapely: paquetes para lectura, escritura y análisis de datos vectoriales &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/b/fiona-shapely';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introducción al análisis de datos con Python" href="introduccion-analisis-datos-python.html" />
+    <link rel="prev" title="Resumen de referencia de Python" href="resumen-referencia-python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    PF-3311 Ciencia de datos geoespaciales 2025-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Información sobre el curso</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/descripcion-curso.html">Descripción general, objetivos y metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/requisitos-curso.html">Requisitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/cronograma-curso.html">Cronograma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/evaluacion-curso.html">Evaluación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../informacion-general/bibliografia-curso.html">Bibliografía y otros recursos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A - Introducción</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../a/introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/sistemas-informacion-geografica.html">Sistemas de información geográfica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/modelos-estandares-datos-geoespaciales.html">Modelos y estándares de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/software-manejo-datos-geoespaciales.html">Software para manejo de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html">GDAL: biblioteca para lectura y escritura de datos geoespaciales</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">B - Procesamiento de datos geoespaciales con Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduccion-python.html">Introducción al lenguaje de programación Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resumen-referencia-python.html">Resumen de referencia de Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fiona y Shapely: paquetes para lectura, escritura y análisis de datos vectoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion-analisis-datos-python.html">Introducción al análisis de datos con Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">pandas: paquete para análisis y manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">GeoPandas: paquete para agregar capacidades geoespaciales a pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folium.html">folium: paquete para desarrollo de mapas web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-analisis-pandas-geopandas-folium.html">Ejemplo de análisis con pandas, geopandas y folium</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C - Visualización y análisis avanzados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../c/streamlit.html">Streamlit: marco de trabajo para desarrollo de aplicaciones web de ciencia de datos y aprendizaje automatizado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluaciones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-01.html">Tarea 01 - Elaboración de un mapa en QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-02.html">Tarea 02 - Análisis de datos geoespaciales mediante Fiona y Shapely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/tarea-03.html">Tarea 03 - Análisis de datos geoespaciales mediante pandas, plotly, geopandas y folium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluaciones/proyecto.html">Proyecto - Desarrollo de tablero de datos en Streamlit</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/issues/new?title=Issue%20on%20page%20%2Fcontenido/b/fiona-shapely.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contenido/b/fiona-shapely.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fiona y Shapely: paquetes para lectura, escritura y análisis de datos vectoriales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-general">Descripción general</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fiona">Fiona</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely">Shapely</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-uso">Ejemplos de uso</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-distribucion-de-especies-de-murcielagos-en-costa-rica">Análisis de distribución de especies de murciélagos en Costa Rica</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas">Bibliotecas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtencion-de-datos">1. Obtención de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#registros-de-presencia-de-murcielagos">Registros de presencia de murciélagos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#capas-geoespaciales-de-costa-rica">Capas geoespaciales de Costa Rica</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-silvestres-protegidas-asp">Áreas silvestres protegidas (ASP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-archivo-geopackage-con-todas-las-capas">2. Creación de un archivo GeoPackage con todas las capas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Registros de presencia de murciélagos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Áreas Silvestres Protegidas (ASP)</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteo-de-especies-en-cada-poligono-de-las-capas">3. Conteo de especies en cada polígono de las capas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#en-asp">En ÁSP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fiona-y-shapely-paquetes-para-lectura-escritura-y-analisis-de-datos-vectoriales">
+<h1>Fiona y Shapely: paquetes para lectura, escritura y análisis de datos vectoriales<a class="headerlink" href="#fiona-y-shapely-paquetes-para-lectura-escritura-y-analisis-de-datos-vectoriales" title="Link to this heading">#</a></h1>
+<section id="descripcion-general">
+<h2>Descripción general<a class="headerlink" href="#descripcion-general" title="Link to this heading">#</a></h2>
+<section id="fiona">
+<h3>Fiona<a class="headerlink" href="#fiona" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/Toblerity/Fiona">Fiona</a> es una biblioteca en Python para la lectura y escritura de datos geoespaciales. Su código está enlazado con <a class="reference external" href="https://gdal.org/">GDAL</a>, desarrollada en C/C++.</p>
+<p>A diferencia de otras bibliotecas basadas en GDAL (ej. <a class="reference external" href="https://gdal.org/python/">osgeo.gdal/osgeo.ogr</a>, con ejemplos en <a class="reference external" href="https://pcjericks.github.io/py-gdalogr-cookbook/">Python GDAL/OGR Cookbook</a>), Fiona está diseñada para seguir el estilo estándar de entrada-salida (IO) de Python, mediante protocolos y tipos de datos típicos de Python, tales como archivos, diccionarios, mapeos e iteradores, en lugar de clases específicas de la implementación C/C++ de GDAL.</p>
+<p>Fiona está hecha para ser “simple y confiable”. Está integrada con otras bibliotecas geoespaciales de Python como <a class="reference external" href="https://github.com/pyproj4/pyproj">pyproj</a>, <a class="reference external" href="https://github.com/Toblerity/rtree">Rtree</a> y <a class="reference external" href="https://github.com/shapely/shapely">Shapely</a>.</p>
+</section>
+<section id="shapely">
+<h3>Shapely<a class="headerlink" href="#shapely" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/shapely/shapely">Shapely</a> es una biblioteca en Python para la manipulación y análisis de objetos geométricos planos. Está basada en la biblioteca <a class="reference external" href="https://libgeos.org/">GEOS</a>, programada en C/C++.</p>
+<p>Shapely no se ocupa de formatos de datos o sistemas de coordenadas, pero puede integrarse con bibliotecas que lo hacen (ej. <a class="reference external" href="https://github.com/Toblerity/Fiona">Fiona</a>, <a class="reference external" href="https://github.com/pyproj4/pyproj">pyproj</a>).</p>
+<p>Tanto Fiona como Shapely son utilizadas por la biblioteca <a class="reference external" href="https://geopandas.org/">geopandas</a>, para el análisis avanzado de datos geoespaciales.</p>
+</section>
+</section>
+<section id="ejemplos-de-uso">
+<h2>Ejemplos de uso<a class="headerlink" href="#ejemplos-de-uso" title="Link to this heading">#</a></h2>
+<section id="analisis-de-distribucion-de-especies-de-murcielagos-en-costa-rica">
+<h3>Análisis de distribución de especies de murciélagos en Costa Rica<a class="headerlink" href="#analisis-de-distribucion-de-especies-de-murcielagos-en-costa-rica" title="Link to this heading">#</a></h3>
+<p>Se analiza la distribución de especies de <a class="reference external" href="https://es.wikipedia.org/wiki/Chiroptera">murciélagos</a> en Costa Rica con base en varias divisiones del territorio. Se utilizan las siguientes fuentes de datos:</p>
+<ul class="simple">
+<li><p>Registros de presencia de murciélagos, agrupados por la <a class="reference external" href="https://api.gbif.org/v1/occurrence/download/request/0105729-210914110416597.zip">Infraestructura Mundial de Información en Biodiversidad (GBIF)</a>.</p></li>
+<li><p>Capas geoespaciales de Costa Rica agrupadas por el <a class="reference external" href="https://www.snitcr.go.cr/">Sistema Nacional de Información Territorial (SNIT)</a>.</p></li>
+</ul>
+<p>Los pasos del procedimiento a seguir son:</p>
+<ol class="arabic simple">
+<li><p>Obtención de datos.</p></li>
+<li><p>Creación de un archivo GeoPackage con todas las capas.</p></li>
+<li><p>Conteo de especies en cada polígono de las capas.</p></li>
+</ol>
+<section id="bibliotecas">
+<h4>Bibliotecas<a class="headerlink" href="#bibliotecas" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">fiona</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fiona.crs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">shape</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">owslib.wfs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebFeatureService</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geojson</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">fiona.crs</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">shape</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">owslib.wfs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebFeatureService</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">geojson</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;owslib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtencion-de-datos">
+<h4>1. Obtención de datos<a class="headerlink" href="#obtencion-de-datos" title="Link to this heading">#</a></h4>
+<section id="registros-de-presencia-de-murcielagos">
+<h5>Registros de presencia de murciélagos<a class="headerlink" href="#registros-de-presencia-de-murcielagos" title="Link to this heading">#</a></h5>
+<p>Se descargan en un archivo CSV desde una consulta al portal de GBIF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descarga de archivo CSV comprimido en ZIP mediante solicitud tipo GET</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.gbif.org/v1/occurrence/download/request/0105729-210914110416597.zip&#39;</span><span class="p">,</span> 
+                        <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datos/murcielagos.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descompresión</span>
+
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;datos/murcielagos.zip&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipfile</span><span class="p">:</span>
+    <span class="n">zipfile</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;datos/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambio de nombre del archivo CSV</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;datos/0105729-210914110416597.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;datos/murcielagos.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="capas-geoespaciales-de-costa-rica">
+<h5>Capas geoespaciales de Costa Rica<a class="headerlink" href="#capas-geoespaciales-de-costa-rica" title="Link to this heading">#</a></h5>
+<p>Se descargan como archivos GeoJON desde servicios WFS.</p>
+<section id="areas-silvestres-protegidas-asp">
+<h6>Áreas silvestres protegidas (ASP)<a class="headerlink" href="#areas-silvestres-protegidas-asp" title="Link to this heading">#</a></h6>
+<p>Lista de capas del servidor WFS del Sinac:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clase WebFeatureService de owslib.wfs</span>
+
+<span class="n">wfs</span> <span class="o">=</span> <span class="n">WebFeatureService</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://geos1pne.sirefor.go.cr/wfs&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1.0&#39;</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">wfs</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otras propiedades del objeto WebFeatureService:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Título</span>
+<span class="n">wfs</span><span class="o">.</span><span class="n">identification</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Operaciones</span>
+<span class="p">[</span><span class="n">operation</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">operation</span> <span class="ow">in</span> <span class="n">wfs</span><span class="o">.</span><span class="n">operations</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las operaciones y sus parámetros están documentados en <a class="reference external" href="http://opengeospatial.github.io/e-learning/wfs/text/operations.html">http://opengeospatial.github.io/e-learning/wfs/text/operations.html</a>.</p>
+<p>Operación <a class="reference external" href="http://opengeospatial.github.io/e-learning/wfs/text/operations.html#getcapabilities">GetCapabilities</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solicitud de metadatos del servicio</span>
+
+<span class="c1"># Parámetros de la solicitud</span>
+<span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s1">&#39;WFS&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1.0&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="s1">&#39;GetCapabilities&#39;</span><span class="p">)</span>
+
+<span class="c1"># Solicitud</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://geos1pne.sirefor.go.cr/wfs&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<span class="c1"># Despliegue del contenido de la respuesta</span>
+<span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Puede ver el XML de manera estructurada en <a class="reference external" href="https://jsonformatter.org/xml-parser">https://jsonformatter.org/xml-parser</a></p>
+<p>Operación <a class="reference external" href="http://opengeospatial.github.io/e-learning/wfs/text/operations.html#getfeature">GetFeature</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solicitud de capa WFS de ASP mediante GET, para retornarse como JSON</span>
+
+<span class="c1"># Parámetros de la solicitud</span>
+<span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s1">&#39;WFS&#39;</span><span class="p">,</span>
+              <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1.0&#39;</span><span class="p">,</span> 
+              <span class="n">request</span><span class="o">=</span><span class="s1">&#39;GetFeature&#39;</span><span class="p">,</span> 
+              <span class="n">typeName</span><span class="o">=</span><span class="s1">&#39;PNE:areas_silvestres_protegidas&#39;</span><span class="p">,</span>
+              <span class="n">srsName</span><span class="o">=</span><span class="s1">&#39;urn:ogc:def:crs:EPSG::4326&#39;</span><span class="p">,</span>
+              <span class="n">outputFormat</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="c1"># Solicitud</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://geos1pne.sirefor.go.cr/wfs&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descarga de la respuesta en un archivo GeoJSON</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datos/asp.geojson&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+   <span class="n">dump</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="creacion-de-un-archivo-geopackage-con-todas-las-capas">
+<h4>2. Creación de un archivo GeoPackage con todas las capas<a class="headerlink" href="#creacion-de-un-archivo-geopackage-con-todas-las-capas" title="Link to this heading">#</a></h4>
+<p>El archivo Geopackage se crea con el objetivo de mantener todas las capas en una misma estructura y así facilitar la manipulación de los datos.</p>
+<section id="id1">
+<h5>Registros de presencia de murciélagos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esquema de la nueva capa de registros de presencia de murciélagos</span>
+<span class="c1"># Se incluyen solo los campos más importantes para el análisis</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;properties&#39;</span><span class="p">:{</span><span class="s1">&#39;gbifID&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;species&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;decimalLatitude&#39;</span><span class="p">:</span><span class="s1">&#39;float&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;decimalLongitude&#39;</span><span class="p">:</span><span class="s1">&#39;float&#39;</span>
+                       <span class="p">}}</span>
+
+<span class="c1"># Inserción de registros en el archivo GeoPackage</span>
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;datos/distribucion-murcielagos.gpkg&#39;</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
+                <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+                <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GPKG&#39;</span><span class="p">,</span>
+                <span class="n">crs</span><span class="o">=</span><span class="n">fiona</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span>
+                <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;registros-murcielagos&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datos/murcielagos.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;decimalLongitude&#39;</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;decimalLatitude&#39;</span><span class="p">]))</span>
+            <span class="n">collection</span><span class="o">.</span><span class="n">write</span><span class="p">({</span>
+                <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;gbifID&#39;</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;gbifID&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;species&#39;</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;decimalLatitude&#39;</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;decimalLatitude&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;decimalLongitude&#39;</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;decimalLongitude&#39;</span><span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;geometry&#39;</span><span class="p">:</span><span class="n">mapping</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+            <span class="p">})</span>                        
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h5>Áreas Silvestres Protegidas (ASP)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se agrega el archivo GeoJSON de ASP al GPKG</span>
+
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;datos/asp.geojson&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;datos/distribucion-murcielagos.gpkg&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;GPKG&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;asp&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+            <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conteo-de-especies-en-cada-poligono-de-las-capas">
+<h4>3. Conteo de especies en cada polígono de las capas<a class="headerlink" href="#conteo-de-especies-en-cada-poligono-de-las-capas" title="Link to this heading">#</a></h4>
+<section id="en-asp">
+<h5>En ÁSP<a class="headerlink" href="#en-asp" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conteo de especies en ASP</span>
+
+<span class="c1"># Esquema de la capa con el total y la lista de especies por ASP</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span><span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;properties&#39;</span><span class="p">:{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;nombre_asp&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;cantidad_especies&#39;</span><span class="p">:</span><span class="s1">&#39;int&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;lista_especies&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span>
+                       <span class="p">}}</span>
+
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;datos/distribucion-murcielagos.gpkg&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;asp&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">asp</span><span class="p">:</span>
+    
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># contador de ASP, para imprimir el progreso del procedimiento</span>
+    
+    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;datos/asp-especies.geojson&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">asp</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+    
+        <span class="k">for</span> <span class="n">record_asp</span> <span class="ow">in</span> <span class="n">asp</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;siglas_cat&#39;</span><span class="p">],</span> <span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;nombre_asp&#39;</span><span class="p">])</span>
+
+            <span class="n">species_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># conjunto de especies en el ASP</span>
+
+            <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;datos/distribucion-murcielagos.gpkg&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;registros-murcielagos&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">registros</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">registro</span> <span class="ow">in</span> <span class="n">registros</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">registro</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+                        <span class="k">continue</span>
+                    
+                    <span class="k">if</span> <span class="n">shape</span><span class="p">(</span><span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">registro</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">])):</span>
+                        <span class="n">species_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">registro</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">species_set</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species_set</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+            <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">({</span>
+                <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;nombre_asp&#39;</span><span class="p">:</span><span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;nombre_asp&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;cantidad_especies&#39;</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">species_set</span><span class="p">),</span>
+                    <span class="s1">&#39;lista_especies&#39;</span><span class="p">:</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species_set</span><span class="p">)</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;geometry&#39;</span><span class="p">:</span><span class="n">record_asp</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+            <span class="p">})</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se agrega el archivo GeoJSON de asp-especies al GPKG</span>
+
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;datos/asp-especies.geojson&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;datos/distribucion-murcielagos.gpkg&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;GPKG&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;asp-especies&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+            <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./contenido/b"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="resumen-referencia-python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Resumen de referencia de Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="introduccion-analisis-datos-python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducción al análisis de datos con Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-general">Descripción general</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fiona">Fiona</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shapely">Shapely</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-uso">Ejemplos de uso</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-distribucion-de-especies-de-murcielagos-en-costa-rica">Análisis de distribución de especies de murciélagos en Costa Rica</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas">Bibliotecas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtencion-de-datos">1. Obtención de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#registros-de-presencia-de-murcielagos">Registros de presencia de murciélagos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#capas-geoespaciales-de-costa-rica">Capas geoespaciales de Costa Rica</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-silvestres-protegidas-asp">Áreas silvestres protegidas (ASP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-archivo-geopackage-con-todas-las-capas">2. Creación de un archivo GeoPackage con todas las capas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Registros de presencia de murciélagos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Áreas Silvestres Protegidas (ASP)</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteo-de-especies-en-cada-poligono-de-las-capas">3. Conteo de especies en cada polígono de las capas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#en-asp">En ÁSP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Manuel Vargas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright CC BY-SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
