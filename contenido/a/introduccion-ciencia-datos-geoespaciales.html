@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/a/introduccion-ciencia-datos-geoespaciales-2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/a/introduccion-ciencia-datos-geoespaciales';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Fundamentos de cartografía y geodesia" href="fundamentos-geodesia-cartografia.html" />
-    <link rel="prev" title="Introducción a la ciencia de datos geoespaciales" href="introduccion-ciencia-datos-geoespaciales-1.html" />
+    <link rel="prev" title="Introducción a la ciencia de datos" href="introduccion-ciencia-datos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,7 +186,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">I - Introducción a la ciencia de datos geoespaciales</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos.html">Introducción a la ciencia de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales-1.html">Introducción a la ciencia de datos geoespaciales</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a la ciencia de datos geoespaciales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sistemas-informacion-geografica.html">Sistemas de información geográfica</a></li>
@@ -262,7 +261,7 @@
       
       
       
-      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/issues/new?title=Issue%20on%20page%20%2Fcontenido/a/introduccion-ciencia-datos-geoespaciales-2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2021-iii/issues/new?title=Issue%20on%20page%20%2Fcontenido/a/introduccion-ciencia-datos-geoespaciales.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +291,7 @@
       
       
       
-      <li><a href="../../_sources/contenido/a/introduccion-ciencia-datos-geoespaciales-2.md" target="_blank"
+      <li><a href="../../_sources/contenido/a/introduccion-ciencia-datos-geoespaciales.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +389,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecturas">Lecturas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-componente-geoespacial-de-los-datos">El componente geoespacial de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-enfoque-de-ciencia-de-datos-geoespaciales">El enfoque de ciencia de datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-los-datos-geoespaciales">Características de los datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-datos-geoespaciales">Modelos de datos geoespaciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-vectorial">Modelo vectorial</a></li>
@@ -417,11 +417,30 @@ document.write(`
 <h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Link to this heading">#</a></h2>
 <section id="lecturas">
 <h3>Lecturas<a class="headerlink" href="#lecturas" title="Link to this heading">#</a></h3>
-<p>Rey,	S.	J.,	Arribas-Bel,	D.,	&amp;	Wolf,	L.	J.	(2020).	<em>Geographic	Data	Science	with	Python</em>. <a class="reference external" href="https://geographicdata.science/book/">https://geographicdata.science/book/</a></p>
+<p>Hwang, J. P. (2021, septiembre 3). Building a Big Data Geographical Dashboard with Open-Source Tools. Plotly. <a class="reference external" href="https://medium.com/plotly/building-a-big-data-geographical-dashboard-with-open-source-tools-c5108d7d5683">https://medium.com/plotly/building-a-big-data-geographical-dashboard-with-open-source-tools-c5108d7d5683</a></p>
+<p>Rey, S. J., Arribas-Bel, D., &amp; Wolf, L. J. (2020). Geographic Data Science with Python. <a class="reference external" href="https://geographicdata.science/book/">https://geographicdata.science/book/</a> (Parte I)</p>
+<p>Wu, Q. (2021, octubre 25). A streamlit app for creating timelapse of annual Landsat imagery (1984–2021). Medium. <a class="reference external" href="https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32">https://giswqs.medium.com/a-streamlit-app-for-creating-timelapse-of-annual-landsat-imagery-1984-2021-3db407a8ac32</a></p>
 </section>
 </section>
-<section id="introduccion">
-<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<section id="el-componente-geoespacial-de-los-datos">
+<h2>El componente geoespacial de los datos<a class="headerlink" href="#el-componente-geoespacial-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Una gran parte de los datos disponibles contiene algún tipo de componente geográfico o espacial[^footnote-geografico-espacial]. Este componente puede expresarse de varias formas. Por ejemplo:</p>
+<ul class="simple">
+<li><p><strong>Con nombres de lugares</strong>: <em>El <a class="reference external" href="https://es.wikipedia.org/wiki/Incilius_periglenes">sapo dorado (<em>Incilius periglenes</em>)</a> era una especie de anfibio, endémica de los bosques nubosos de altitud de Monteverde, Costa Rica.</em></p></li>
+<li><p><strong>Con direcciones</strong>: <em>La <a class="reference external" href="https://es.wikipedia.org/wiki/Sede_de_la_Organizaci%C3%B3n_de_las_Naciones_Unidas">sede de la Organización de las Naciones Unidas (ONU)</a> está ubicada en la ciudad de Nueva York, Estados Unidos, en la Primera Avenida, 750.</em></p></li>
+<li><p><strong>Con coordenadas</strong>: *La cima del <a class="reference external" href="https://es.wikipedia.org/wiki/Monte_Everest">Monte Everest</a> se localiza en las coordenadas geográficas 86°55′31″ E y 27°59′17″ N, como se muestra en la <a class="reference internal" href="#figure-mapa-nepal-everest"><span class="std std-numref">Fig. 6</span></a>.</p></li>
+</ul>
+<figure class="align-default" id="figure-mapa-nepal-everest">
+<img alt="../../_images/nepal-map.jpg" src="../../_images/nepal-map.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Mapa de Nepal que muestra la ubicación del Monte Everest en el sistema de coordenadas geográficas. Fuente: <a class="reference external" href="https://www.mapsofworld.com/">https://www.mapsofworld.com/</a>.</span><a class="headerlink" href="#figure-mapa-nepal-everest" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Las coordenadas correspondientes a lugares y direcciones pueden obtenerse a través de un proceso denominado <a class="reference external" href="https://es.wikipedia.org/wiki/Georreferenciaci%C3%B3n"><em>georreferenciación</em></a>, mediante el cual, en general, se determina la posición espacial de alguna entidad en un sistema de coordenadas. La georreferenciación puede emplearse también para obtener las coordenadas de, por ejemplo, fotografías aéreas o mapas antiguos. Es un proceso que puede resultar complejo y costoso y para el que se han desarrollado metodologías y plataformas especializadas (ej. <a class="reference external" href="https://doi.org/10.15468/doc-gg7h-s853">Chapman AD &amp; Wieczorek JR (2020) Georeferencing Best Practices</a>, <a class="reference external" href="https://www.geo-locate.org/">GEOLocate</a>, <a class="reference external" href="https://nominatim.openstreetmap.org/ui/search.html">Nominatim</a>).</p>
+<p>En la actualidad, hay una gran cantidad de fuentes que generan datos georreferenciados. Entre estas pueden mencionarse las tecnologías de <a class="reference external" href="https://ec.europa.eu/jrc/en/research-topic/earth-observation">observación de la Tierra (<em>Earth Observation</em>)</a> (ej. <a class="reference external" href="https://es.wikipedia.org/wiki/Imagen_satelital">imágenes satelitales</a>), los dispositivos móviles y los sensores remotos, entre muchas otras.</p>
+</section>
+<section id="el-enfoque-de-ciencia-de-datos-geoespaciales">
+<h2>El enfoque de ciencia de datos geoespaciales<a class="headerlink" href="#el-enfoque-de-ciencia-de-datos-geoespaciales" title="Link to this heading">#</a></h2>
 <p>La <strong>ciencia de datos geoespaciales</strong> es una especialización de la ciencia de datos que considera variables espaciales como la <strong>localización</strong>, la <strong>distancia</strong> y las <a class="reference external" href="https://gf0604-procesamientodatosgeograficos.github.io/2024-i/13-operaciones-datos-espaciales.html#relaciones-topol%C3%B3gicas"><strong>relaciones topológicas</strong></a> (ej. intersección, traslape, cobertura), las cuales usualmente no son tomadas en cuenta por la ciencia de datos convencionales.</p>
 <p>Adicionalmente, la ciencia de datos geoespaciales utiliza herramientas y métodos especializados, algunos de los cuales provienen de otras tecnologías de procesamiento de datos espaciales, como los <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_de_informaci%C3%B3n_geogr%C3%A1fica"><strong>sistemas de información geográfica (SIG)</strong></a>. Sin embargo, la ciencia de datos geoespaciales extiende las capacidades de los SIG mediante técnicas estadísticas y computacionales más avanzadas para el análisis y la modelización. Además, puede requerir de una mayor capacidad de procesamiento y de flujos de trabajo (<a class="reference external" href="https://datascientest.com/es/pipeline-definicion-funcionamiento-y-uso-en-data-science"><em>pipelines</em></a>) más complejos.</p>
 <p>El uso masivo de tecnologías como dispositivos móviles, redes sociales y sensores remotos, entre muchas otras, ha incrementado significativamente la disponibilidad de datos geoespaciales en formato digital y la conveniencia de su procesamiento mediante técnicas de ciencia de datos.</p>
@@ -439,31 +458,31 @@ document.write(`
 <p>Los modelos de datos geoespaciales se utilizan para representar procesos geográficos en una computadora <span id="id3">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>. Los modelos más utilizados son el vectorial y el raster.</p>
 <section id="modelo-vectorial">
 <h3>Modelo vectorial<a class="headerlink" href="#modelo-vectorial" title="Link to this heading">#</a></h3>
-<p>Se usa para representar objetos discretos como puntos (ej. personas, postes telefónicos), líneas (ej. ríos, caminos) y polígonos (ej. provincias, fincas) que ocupan una posición específica en el espacio y en el tiempo. Los datos vectoriales se almacenan en tablas como la que se muestra en la <a class="reference internal" href="#figure-tabla-vectorial"><span class="std std-numref">Fig. 8</span></a>. Estas tablas contienen una columna para almacenar las geometrías.</p>
+<p>Se usa para representar objetos discretos como puntos (ej. personas, postes telefónicos), líneas (ej. ríos, caminos) y polígonos (ej. provincias, fincas) que ocupan una posición específica en el espacio y en el tiempo. Los datos vectoriales se almacenan en tablas como la que se muestra en la <a class="reference internal" href="#figure-tabla-vectorial"><span class="std std-numref">Fig. 7</span></a>. Estas tablas contienen una columna para almacenar las geometrías.</p>
 <figure class="align-default" id="figure-tabla-vectorial">
 <img alt="../../_images/tabla-vectorial.png" src="../../_images/tabla-vectorial.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Datos vectoriales almacenados en un <code class="docutils literal notranslate"><span class="pre">geodataframe</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> de Python. Imagen de <span id="id4">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-tabla-vectorial" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Datos vectoriales almacenados en un <code class="docutils literal notranslate"><span class="pre">geodataframe</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> de Python. Imagen de <span id="id4">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-tabla-vectorial" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="modelo-raster">
 <h3>Modelo raster<a class="headerlink" href="#modelo-raster" title="Link to this heading">#</a></h3>
-<p>Se usa para representar superficies (ej. temperatura, precipitación, densidad de población) que, en teoría, pueden ser medidas en cualquier posición en el espacio y en el tiempo. Los datos raster se almacenan en arreglos multidimensionales (matrices, cubos) como el que se muestra en la <a class="reference internal" href="#figure-matriz-raster"><span class="std std-numref">Fig. 9</span></a>.</p>
+<p>Se usa para representar superficies (ej. temperatura, precipitación, densidad de población) que, en teoría, pueden ser medidas en cualquier posición en el espacio y en el tiempo. Los datos raster se almacenan en arreglos multidimensionales (matrices, cubos) como el que se muestra en la <a class="reference internal" href="#figure-matriz-raster"><span class="std std-numref">Fig. 8</span></a>.</p>
 <figure class="align-default" id="figure-matriz-raster">
 <img alt="../../_images/matriz-raster.png" src="../../_images/matriz-raster.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Datos raster almacenados en un <code class="docutils literal notranslate"><span class="pre">Data.Array</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">xarray</span></code> de Python. Imagen de <span id="id5">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-matriz-raster" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Datos raster almacenados en un <code class="docutils literal notranslate"><span class="pre">Data.Array</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">xarray</span></code> de Python. Imagen de <span id="id5">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-matriz-raster" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="redes">
 <h3>Redes<a class="headerlink" href="#redes" title="Link to this heading">#</a></h3>
-<p>Sergio Rey, Daniel Arribas-Bel y Levi Wolf <span id="id6">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span> incluyen las redes, un conjunto de conexiones entre objetos, como otro modelo de datos, el cual puede implementarse mediante <a class="reference external" href="https://es.wikipedia.org/wiki/Grafo">grafos</a>. La <a class="reference internal" href="#figure-grafo-red"><span class="std std-numref">Fig. 10</span></a> muestra una red.</p>
+<p>Sergio Rey, Daniel Arribas-Bel y Levi Wolf <span id="id6">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span> incluyen las redes, un conjunto de conexiones entre objetos, como otro modelo de datos, el cual puede implementarse mediante <a class="reference external" href="https://es.wikipedia.org/wiki/Grafo">grafos</a>. La <a class="reference internal" href="#figure-grafo-red"><span class="std std-numref">Fig. 9</span></a> muestra una red.</p>
 <figure class="align-default" id="figure-grafo-red">
 <img alt="../../_images/grafo-red.png" src="../../_images/grafo-red.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Datos de red. Imagen de <span id="id7">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-grafo-red" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Datos de red. Imagen de <span id="id7">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id40" title="Sergio J. Rey, Daniel Arribas-Bel, and Levi J. Wolf. Geographic Data Science with Python. 2020. URL: https://geographicdata.science/book/ (visited on 2021-12-31).">RABW20</a>]</span>.</span><a class="headerlink" href="#figure-grafo-red" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -522,12 +541,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="introduccion-ciencia-datos-geoespaciales-1.html"
+       href="introduccion-ciencia-datos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introducción a la ciencia de datos geoespaciales</p>
+        <p class="prev-next-title">Introducción a la ciencia de datos</p>
       </div>
     </a>
     <a class="right-next"
@@ -559,7 +578,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecturas">Lecturas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-componente-geoespacial-de-los-datos">El componente geoespacial de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-enfoque-de-ciencia-de-datos-geoespaciales">El enfoque de ciencia de datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-los-datos-geoespaciales">Características de los datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-datos-geoespaciales">Modelos de datos geoespaciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-vectorial">Modelo vectorial</a></li>
