@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -185,7 +185,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">I - Introducción a la ciencia de datos geoespaciales</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos.html">Introducción a la ciencia de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales-1.html">Introducción a la ciencia de datos geoespaciales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Sistemas de información geográfica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
@@ -416,15 +417,15 @@ document.write(`
 </section>
 <section id="id1">
 <h2>Sistemas de información geográfica<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>A principios de la década de 1960, el geógrafo inglés <a class="reference external" href="https://es.wikipedia.org/wiki/Roger_Tomlinson">Roger Tomlinson</a> desarrolló en Canadá el que se considera el primer sistema de información geográfica. Se trataba del <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_Geographic_Information_System">Canada Geographic Information System (CGIS)</a> y su objetivo fue manejar los datos del inventario geográfico canadiense y su análisis para la gestión del territorio rural. De manera casi simultánea al trabajo de Tomlinson, surgieron desarrollos similares en Estados Unidos y en el Reino Unido. El surgimiento de los sistemas de información geográfica no implicó solo el surgimiento de nuevas herramientas de software, sino también el desarrollo de técnicas que hasta entonces no habían sido necesarias <span id="id2">[<a class="reference internal" href="../informacion-general/cronograma-curso.html#id41" title="Víctor Olaya. Sistemas de Información Geográfica. 2020. URL: https://volaya.github.io/libro-sig/ (visited on 2021-12-31).">Ola20</a>]</span> como, por ejemplo, la manipulación de nuevos tipos de datos geométricos (ej. puntos, líneas, polígonos).</p>
-<p>En general, un sistema de información geográfica (SIG) maneja datos georreferenciados (i.e. ubicados en un sistema de coordenadas) y los asocia con datos convencionales (ej. números, textos), como se muestra en la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 14</span></a>.</p>
+<p>A principios de la década de 1960, el geógrafo inglés <a class="reference external" href="https://es.wikipedia.org/wiki/Roger_Tomlinson">Roger Tomlinson</a> desarrolló en Canadá el que se considera el primer sistema de información geográfica. Se trataba del <a class="reference external" href="https://en.wikipedia.org/wiki/Canada_Geographic_Information_System">Canada Geographic Information System (CGIS)</a> y su objetivo fue manejar los datos del inventario geográfico canadiense y su análisis para la gestión del territorio rural. De manera casi simultánea al trabajo de Tomlinson, surgieron desarrollos similares en Estados Unidos y en el Reino Unido. El surgimiento de los sistemas de información geográfica no implicó solo el surgimiento de nuevas herramientas de software, sino también el desarrollo de técnicas que hasta entonces no habían sido necesarias <span id="id2">[<a class="reference internal" href="introduccion-ciencia-datos-geoespaciales-1.html#id13" title="Víctor Olaya. Sistemas de Información Geográfica. 2020. URL: https://volaya.github.io/libro-sig/ (visited on 2021-12-31).">Ola20</a>]</span> como, por ejemplo, la manipulación de nuevos tipos de datos geométricos (ej. puntos, líneas, polígonos).</p>
+<p>En general, un sistema de información geográfica (SIG) maneja datos georreferenciados (i.e. ubicados en un sistema de coordenadas) y los asocia con datos convencionales (ej. números, textos), como se muestra en la <a class="reference internal" href="introduccion-ciencia-datos-geoespaciales-1.html#figure-mapa-qgis"><span class="std std-numref">Fig. 7</span></a>.</p>
 <figure class="align-default" id="figure-mapa-qgis">
 <img alt="../../_images/mapa-qgis.png" src="../../_images/mapa-qgis.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Mapa elaborado en QGIS que muestra la ubicación de los aeródromos de Costa Rica.</span><a class="headerlink" href="#figure-mapa-qgis" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Mapa elaborado en QGIS que muestra la ubicación de los aeródromos de Costa Rica.</span><a class="headerlink" href="#figure-mapa-qgis" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En la actualidad, los SIG presentan los datos en capas (<em>layers</em>). Por ejemplo, el mapa de la <a class="reference internal" href="#figure-mapa-qgis"><span class="std std-numref">Fig. 14</span></a> contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.</p>
+<p>En la actualidad, los SIG presentan los datos en capas (<em>layers</em>). Por ejemplo, el mapa de la <a class="reference internal" href="introduccion-ciencia-datos-geoespaciales-1.html#figure-mapa-qgis"><span class="std std-numref">Fig. 7</span></a> contiene una capa base raster (la que muestra el mar y el continente), una capa de polígonos correspondiente a las provincias de Costa Rica y una capa de puntos correspondiente a los aeródromos. A la izquierda puede apreciarse la lista de esas capas y a la derecha un cuadro con información detallada sobre uno de los aeródromos.</p>
 <p>Los SIG de escritorio (ej. <a class="reference external" href="https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview">ArcGIS Desktop</a>, <a class="reference external" href="https://www.qgis.org/">QGIS</a>) son herramientas con interfaces de usuario muy gráficas e intuitivas, que no requieren de conocimientos de programación de computadoras y que permiten generar cartografía de alta calidad. Sin embargo, son poco flexibles y los resultados que producen son difícilmente <a class="reference external" href="https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad">reproducibles</a>.</p>
 </section>
 </section>
