@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Formatos y fuentes de datos geoespaciales &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+    <title>Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/a/fuentes-formatos-datos-geoespaciales';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -188,7 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Formatos y fuentes de datos geoespaciales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Datos</span></p>
 <ul class="nav bd-sidenav">
@@ -378,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Formatos y fuentes de datos geoespaciales</h1>
+    <h1>Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,13 +390,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-formatos-de-archivos">Principales formatos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatos-de-archivos-geoespaciales">Formatos de archivos geoespaciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectoriales">Vectoriales</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raster">Raster</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-fuentes-de-datos">Ejemplos de fuentes de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos-geoespaciales">Fuentes de datos geoespaciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sitios-tematicos">Sitios temáticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoprocesamiento">Geoprocesamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-de-mapas">Álgebra de mapas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-calculo-del-ndvi">Ejemplo: cálculo del NDVI</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#teledeteccion">Teledetección</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ndvi">NDVI</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -406,10 +422,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="formatos-y-fuentes-de-datos-geoespaciales">
-<h1>Formatos y fuentes de datos geoespaciales<a class="headerlink" href="#formatos-y-fuentes-de-datos-geoespaciales" title="Link to this heading">#</a></h1>
-<section id="principales-formatos-de-archivos">
-<h2>Principales formatos de archivos<a class="headerlink" href="#principales-formatos-de-archivos" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="formatos-de-archivos-geoespaciales-fuentes-de-datos-geoespaciales-y-geoprocesamiento">
+<h1>Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento<a class="headerlink" href="#formatos-de-archivos-geoespaciales-fuentes-de-datos-geoespaciales-y-geoprocesamiento" title="Link to this heading">#</a></h1>
+<section id="formatos-de-archivos-geoespaciales">
+<h2>Formatos de archivos geoespaciales<a class="headerlink" href="#formatos-de-archivos-geoespaciales" title="Link to this heading">#</a></h2>
 <section id="vectoriales">
 <h3>Vectoriales<a class="headerlink" href="#vectoriales" title="Link to this heading">#</a></h3>
 <p>Los formatos de archivos espaciales vectoriales almacenan geometrías discretas (puntos, líneas y polígonos) junto con sus atributos y el sistema de referencia. Cada formato equilibra interoperabilidad, tamaño y capacidades (codificación, índices, capas múltiples, etc.). El soporte real de lectura/escritura depende de la compilación de la biblioteca <a class="reference external" href="https://gdal.org/">GDAL/OGR</a>, la cual mantiene una <a class="reference external" href="https://gdal.org/en/stable/drivers/vector/">lista de formatos vectoriales</a> soportados.</p>
@@ -442,8 +458,10 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="ejemplos-de-fuentes-de-datos">
-<h2>Ejemplos de fuentes de datos<a class="headerlink" href="#ejemplos-de-fuentes-de-datos" title="Link to this heading">#</a></h2>
+<section id="fuentes-de-datos-geoespaciales">
+<h2>Fuentes de datos geoespaciales<a class="headerlink" href="#fuentes-de-datos-geoespaciales" title="Link to this heading">#</a></h2>
+<section id="sitios-tematicos">
+<h3>Sitios temáticos<a class="headerlink" href="#sitios-tematicos" title="Link to this heading">#</a></h3>
 <p>Los datos geoespaciales pueden encontrarse en una gran variedad de fuentes. Examine las siguientes. Descargue algunos archivos de cada una y estúdielos en QGIS.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.naturalearthdata.com/">Natural Earth</a></p></li>
@@ -454,12 +472,12 @@ document.write(`
 </ul>
 </section>
 <section id="infraestructuras-de-datos-espaciales">
-<h2>Infraestructuras de Datos Espaciales<a class="headerlink" href="#infraestructuras-de-datos-espaciales" title="Link to this heading">#</a></h2>
+<h3>Infraestructuras de Datos Espaciales<a class="headerlink" href="#infraestructuras-de-datos-espaciales" title="Link to this heading">#</a></h3>
 <p>Una Infraestructura de Datos Espaciales (IDE) es el conjunto coordinado de datos geográficos, metadatos, servicios web, normas y acuerdos institucionales que facilita descubrir, acceder, integrar y reutilizar información geoespacial desde Internet. Se apoya en estándares abiertos del <a class="reference external" href="https://www.ogc.org/">Open Geospatial Consortium (OGC)</a> —por ejemplo WMS, WFS, WCS, CSW y la familia OGC API— además de normas ISO (ej. ISO 19115 para metadatos), lo que garantiza la interoperabilidad entre diferentes plataformas y organizaciones.</p>
 <p>En Costa Rica, el <a class="reference external" href="https://www.snitcr.go.cr/">SNIT (Sistema Nacional de Información Territorial)</a> es la plataforma oficial para publicar y compartir la información geográfica fundamental con estándares nacionales, liderada por el Instituto Geográfico Nacional (IGN) del Registro Nacional. El SNIT fue creado por el Decreto Ejecutivo N.° 37773 (7 de mayo de 2013) y hoy articula la IDECORI (Infraestructura de Datos Espaciales de Costa Rica), establecida por el Decreto Ejecutivo N.° 42120-JP (publicado el 13 de febrero de 2020). A través de su geoportal ofrece catálogos y geoservicios interoperables (WMS y WFS) para consulta y reutilización de datos oficiales.</p>
 <p><strong>Ejercicios</strong></p>
 <ol class="arabic simple">
-<li><p>Acceda los <a class="reference external" href="https://www.snitcr.go.cr/ico_servicios_ogc">Servicios OGC</a> desde QGIS y descargue en su computadora los archivos de datos en formato GeoPackage (GPKG) correspondientes a:</p></li>
+<li><p>Acceda los <a class="reference external" href="https://www.snitcr.go.cr/ico_servicios_ogc">Servicios OGC</a> del SNIT desde QGIS y descargue en su computadora los archivos de datos en formato GeoPackage (GPKG) correspondientes a:</p></li>
 </ol>
 <ul class="simple">
 <li><p>En el nodo IGN Cartografía 1:5mil CO: Límite Provincial, Límite Cantonal y Límite Distrital.</p></li>
@@ -467,6 +485,182 @@ document.write(`
 <li><p>En el nodo IGN 1:200mil: Aeródromos 1:200mil.</p></li>
 </ul>
 <p>Se recomienda que el nombre de cada capa tenga el mismo nombre que el archivo correspondiente. Guarde los datos en el CRS WGS 84 (EPSG:4326).</p>
+</section>
+</section>
+<section id="geoprocesamiento">
+<h2>Geoprocesamiento<a class="headerlink" href="#geoprocesamiento" title="Link to this heading">#</a></h2>
+<section id="algebra-de-mapas">
+<h3>Álgebra de mapas<a class="headerlink" href="#algebra-de-mapas" title="Link to this heading">#</a></h3>
+<p>El <a class="reference external" href="https://en.m.wikipedia.org/wiki/Map_algebra">álgebra de mapas</a> permite crear nuevas capas espaciales al combinar y transformar capas existentes mediante operaciones matemáticas y lógicas aplicadas celda por celda, como es muestra en la <a class="reference internal" href="#figure-algebra-mapas"><span class="std std-numref">Fig. 24</span></a>.</p>
+<figure class="align-default" id="figure-algebra-mapas">
+<img alt="../../_images/algebra-mapas.png" src="../../_images/algebra-mapas.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Álgebra de mapas. Imagen de Bplewe compartida a través de <a class="reference external" href="https://commons.wikimedia.org/wiki/File:MapAlgebra.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#figure-algebra-mapas" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Cada capa se trata como una matriz en la que cada celda (o píxel) representa una propiedad geográfica específica (ej. elevación, temperatura, uso del suelo), de modo que operaciones simples (suma, resta, multiplicación, división) o funciones más complejas (estadísticas focales, reescalamientos, condicionales y funciones de vecindad) se ejecutan de forma sistemática sobre conjuntos de celdas análogas. El álgebra de mapas raster permite modelar procesos ambientales, evaluar idoneidad territorial, analizar riesgos y realizar simulaciones espaciales de manera reproducible y eficiente.</p>
+<section id="ejemplo-calculo-del-ndvi">
+<h4>Ejemplo: cálculo del NDVI<a class="headerlink" href="#ejemplo-calculo-del-ndvi" title="Link to this heading">#</a></h4>
+<p>El <a class="reference external" href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_vegetaci%C3%B3n_de_diferencia_normalizada">Índice de vegetación de diferencia normalizada</a> (NDVI, en inglés, <em>Normalized Difference Vegetation Index</em>) es un indicador espectral que cuantifica la densidad y el vigor de la vegetación. Puede calcularse a partir de datos recopilados mediante teledetección.</p>
+<section id="teledeteccion">
+<h5>Teledetección<a class="headerlink" href="#teledeteccion" title="Link to this heading">#</a></h5>
+<p>La teledetección es la disciplina que trata sobre la adquisición de información sobre la superficie terrestre sin contacto físico directo, registrando la energía electromagnética (EM) reflejada o emitida por los objetos. Las formas más comunes de teledetección se basan en energía electromagnética reflejada. Cuando la energía (luz) del sol u otra fuente golpea un objeto, se refleja una parte de la energía. Diferentes materiales reflejan diferentes cantidades de energía entrante, lo que permite identificar los objetos. Por ejemplo, la energía que refleja una zona boscosa es diferente a la que refleja un cultivo o una ciudad, como se ilustra en la <a class="reference internal" href="#figure-teledeteccion"><span class="std std-numref">Fig. 25</span></a>.</p>
+<figure class="align-default" id="figure-teledeteccion">
+<img alt="../../_images/teledeteccion.gif" src="../../_images/teledeteccion.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Proceso de teledetección. Imagen de Natural Resources Canada.</span><a class="headerlink" href="#figure-teledeteccion" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Los sensores instalados en satélites (y aviones o drones) “observan” distintas porciones del <a class="reference external" href="https://es.wikipedia.org/wiki/Espectro_electromagn%C3%A9tico">espectro electromagnético</a>, mediante bandas discretas. Cada banda registra la intensidad de la señal en un rango de longitudes de onda y, por tanto, resalta propiedades físicas particulares. Así, los satélites orbitan la Tierra con cámaras multiespectrales (ej. Landsat 8/9 OLI, Sentinel-2 MSI) o hiperespectrales (ej. EnMAP, PRISMA) que dividen el espectro en decenas o cientos de bandas, además de sensores térmicos (ej. Landsat TIRS, MODIS) y de radar de apertura sintética (SAR) activos en microondas (ej. Sentinel-1, SAOCOM). Cada banda cumple un papel específico: distinguir vegetación sana (rojo + NIR), identificar humedad del suelo (SWIR), estimar temperatura (térmico), penetrar nubes y medir estructura (SAR), etc. La combinación de estas bandas mediante álgebra de mapas raster, índices espectrales o clasificación multibanda permite cartografiar uso del suelo, monitorear cultivos, evaluar desastres y estudiar procesos planetarios con un nivel de detalle y cobertura imposible de lograr <em>in situ</em>.</p>
+<p>Por ejemplo, los satélites <a class="reference external" href="https://es.wikipedia.org/wiki/Sentinel-2">Sentinel-2</a> (Sentinel-2A y Sentinel-2B) de la Agencia Espacial Europea constituyen una constelación multiespectral equipada con el instrumento MultiSpectral Instrument (MSI), capaz de registrar 13 bandas distribuidas en el espectro visible, el infrarrojo cercano (NIR) y el infrarrojo de onda corta (SWIR), con resoluciones espaciales de 10 m, 20 m y 60 m según la banda, lo que les permite monitorizar con alta frecuencia y detalle procesos terrestres tan diversos como la salud de la vegetación, la humedad del suelo, la presencia de aerosoles o las nubes cirros.</p>
+<p>Las siguientes son las bandas de los satélites Sentinel-2:</p>
+<style>
+  /* Estilo sencillo para alternar colores de fila */
+  table.s2-bandas {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table.s2-bandas th,
+  table.s2-bandas td {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  table.s2-bandas thead {
+    background-color: #3f51b5;      /* encabezado en tono azul */
+    color: #fff;
+  }
+  table.s2-bandas tbody tr:nth-child(odd)  { background-color: #ffffff; }
+  table.s2-bandas tbody tr:nth-child(even) { background-color: #f2f5ff; } /* fila alterna más clara */
+</style>
+<table class="s2-bandas">
+  <caption style="caption-side: bottom; text-align: left; padding-top: 8px;">
+    Fuentes:&nbsp;
+    <a href="https://docs.sentinel-hub.com/api/latest/data/sentinel-2-l1c/" target="_blank">
+      ESA&nbsp;Sentinel-2&nbsp;MSI&nbsp;documentation
+    </a>
+    &nbsp;y&nbsp;
+    <a href="https://docs.sentinel-hub.com/api/latest/data/sentinel-2-l2a/" target="_blank">
+      Sentinel&nbsp;Hub&nbsp;Technical&nbsp;Guide
+    </a>.
+  </caption>
+  <thead>
+    <tr>
+      <th>Banda</th>
+      <th>Longitud de onda central&nbsp;(nm)</th>
+      <th>Ancho de banda&nbsp;(nm)</th>
+      <th>Resoluci&oacute;n&nbsp;(m)</th>
+      <th>Uso principal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B01 (aerosoles)</td>
+      <td>443</td>
+      <td>20</td>
+      <td>60</td>
+      <td>Detecci&oacute;n de aerosoles, calibraci&oacute;n atmosf&eacute;rica</td>
+    </tr>
+    <tr>
+      <td>B02 (azul)</td>
+      <td>490</td>
+      <td>65</td>
+      <td>10</td>
+      <td>Diferenciaci&oacute;n suelo–vegetaci&oacute;n, penetraci&oacute;n agua clara</td>
+    </tr>
+    <tr>
+      <td>B03 (verde)</td>
+      <td>560</td>
+      <td>35</td>
+      <td>10</td>
+      <td>Contraste agua limpia/turbia, realce de vegetaci&oacute;n</td>
+    </tr>
+    <tr>
+      <td>B04 (rojo)</td>
+      <td>665</td>
+      <td>30</td>
+      <td>10</td>
+      <td>&Iacute;ndices de vegetaci&oacute;n (con NIR), usos/coberturas</td>
+    </tr>
+    <tr>
+      <td>B05 (borde rojo&nbsp;1)</td>
+      <td>705</td>
+      <td>15</td>
+      <td>20</td>
+      <td>Fluorescencia clorof&iacute;lica, estr&eacute;s vegetal</td>
+    </tr>
+    <tr>
+      <td>B06 (borde rojo&nbsp;2)</td>
+      <td>740</td>
+      <td>15</td>
+      <td>20</td>
+      <td>Clasificaci&oacute;n de vegetaci&oacute;n, contenido de clorofila</td>
+    </tr>
+    <tr>
+      <td>B07 (borde rojo&nbsp;3)</td>
+      <td>783</td>
+      <td>20</td>
+      <td>20</td>
+      <td>Biomasa, estructura foliar</td>
+    </tr>
+    <tr>
+      <td>B08 (NIR)</td>
+      <td>842</td>
+      <td>115</td>
+      <td>10</td>
+      <td>NDVI/EVI, biomasa, delineaci&oacute;n de costas</td>
+    </tr>
+    <tr>
+      <td>B8A (NIR estrecho)</td>
+      <td>865</td>
+      <td>20</td>
+      <td>20</td>
+      <td>Fotofisiolog&iacute;a, discriminaci&oacute;n de tipos de cultivo</td>
+    </tr>
+    <tr>
+      <td>B09 (vapor de agua)</td>
+      <td>945</td>
+      <td>20</td>
+      <td>60</td>
+      <td>Contenido atmosf&eacute;rico de H<sub>2</sub>O</td>
+    </tr>
+    <tr>
+      <td>B10 (cirros)</td>
+      <td>1375</td>
+      <td>30</td>
+      <td>60</td>
+      <td>Detecci&oacute;n de nubes cirros</td>
+    </tr>
+    <tr>
+      <td>B11 (SWIR&nbsp;1)</td>
+      <td>1610</td>
+      <td>90</td>
+      <td>20</td>
+      <td>Humedad de vegetaci&oacute;n y suelo, separaci&oacute;n nieve/nube</td>
+    </tr>
+    <tr>
+      <td>B12 (SWIR&nbsp;2)</td>
+      <td>2190</td>
+      <td>180</td>
+      <td>20</td>
+      <td>Incendios, mineralog&iacute;a, humedad del suelo</td>
+    </tr>
+  </tbody>
+</table>
+</section>
+</section>
+<section id="ndvi">
+<h4>NDVI<a class="headerlink" href="#ndvi" title="Link to this heading">#</a></h4>
+<p>El NDVI mide el estado de la vegetación mediante la combinación matemática de la reflectancia registrada en las bandas rojo (R) e infrarrojo cercano (NIR) de una imagen satelital o aérea, de acuerdo con la fórmula NDVI = (NIR − R) / (NIR + R).</p>
+<div class="math notranslate nohighlight">
+\[
+\text{NDVI} \;=\; \frac{\text{NIR} - \text{R}}{\text{NIR} + \text{R}}
+\]</div>
+<p>Los pigmentos clorofílicos absorben gran parte de la luz roja para la fotosíntesis, mientras que la estructura interna de las hojas refleja intensamente el NIR; por ello, valores altos de NDVI (cercanos a +1) se asocian con vegetación densa y saludable, valores cercanos a 0 indican cobertura escasa o suelos expuestos, y valores negativos reflejan superficies como agua, nieve o nubes. Esta métrica, ampliamente utilizada en teledetección y monitoreo ambiental, permite evaluar la productividad de cultivos, detectar estrés hídrico, seguir la fenología de ecosistemas y analizar cambios en la cobertura vegetal a diversas escalas temporales y espaciales, constituyéndose en una herramienta clave para la gestión de recursos naturales y la investigación climática.</p>
+<p><strong>Ejercicio</strong></p>
+<p>Genere una capa con el cálculo del NDVI para la <a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/raw/refs/heads/main/datos/sentinel/gandoca-20240618.tif">imagen de Gandoca-Manzanillo tomada el 2024-06-18</a>.</p>
+</section>
+</section>
 </section>
 </section>
 
@@ -525,13 +719,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-formatos-de-archivos">Principales formatos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatos-de-archivos-geoespaciales">Formatos de archivos geoespaciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectoriales">Vectoriales</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raster">Raster</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-fuentes-de-datos">Ejemplos de fuentes de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos-geoespaciales">Fuentes de datos geoespaciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sitios-tematicos">Sitios temáticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geoprocesamiento">Geoprocesamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-de-mapas">Álgebra de mapas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-calculo-del-ndvi">Ejemplo: cálculo del NDVI</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#teledeteccion">Teledetección</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ndvi">NDVI</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
