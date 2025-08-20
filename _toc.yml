@@ -17,3 +17,7 @@ parts:
     - file: contenido/a/sistemas-informacion-geografica
     - file: contenido/a/qgis-sig-escritorio
     - file: contenido/a/fuentes-formatos-datos-geoespaciales
+  - caption: Datos
+    chapters:
+    - url: https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos
+      title: Datos en el repositorio GitHub del curso
