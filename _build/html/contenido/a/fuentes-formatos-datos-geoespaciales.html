@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fuentes y formatos de datos geoespaciales &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+    <title>Formatos y fuentes de datos geoespaciales &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
   
   
   
@@ -188,7 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fuentes y formatos de datos geoespaciales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Formatos y fuentes de datos geoespaciales</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Datos</span></p>
 <ul class="nav bd-sidenav">
@@ -378,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fuentes y formatos de datos geoespaciales</h1>
+    <h1>Formatos y fuentes de datos geoespaciales</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,6 +388,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-formatos-de-archivos">Principales formatos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectoriales">Vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raster">Raster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-fuentes-de-datos">Ejemplos de fuentes de datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
 </ul>
             </nav>
@@ -400,8 +406,53 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fuentes-y-formatos-de-datos-geoespaciales">
-<h1>Fuentes y formatos de datos geoespaciales<a class="headerlink" href="#fuentes-y-formatos-de-datos-geoespaciales" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="formatos-y-fuentes-de-datos-geoespaciales">
+<h1>Formatos y fuentes de datos geoespaciales<a class="headerlink" href="#formatos-y-fuentes-de-datos-geoespaciales" title="Link to this heading">#</a></h1>
+<section id="principales-formatos-de-archivos">
+<h2>Principales formatos de archivos<a class="headerlink" href="#principales-formatos-de-archivos" title="Link to this heading">#</a></h2>
+<section id="vectoriales">
+<h3>Vectoriales<a class="headerlink" href="#vectoriales" title="Link to this heading">#</a></h3>
+<p>Los formatos de archivos espaciales vectoriales almacenan geometrías discretas (puntos, líneas y polígonos) junto con sus atributos y el sistema de referencia. Cada formato equilibra interoperabilidad, tamaño y capacidades (codificación, índices, capas múltiples, etc.). El soporte real de lectura/escritura depende de la compilación de la biblioteca <a class="reference external" href="https://gdal.org/">GDAL/OGR</a>, la cual mantiene una <a class="reference external" href="https://gdal.org/en/stable/drivers/vector/">lista de formatos vectoriales</a> soportados.</p>
+<p>Los siguientes son algunos de los principales formatos vectoriales:</p>
+<ul class="simple">
+<li><p>GeoPackage (.gpkg) — contenedor SQLite, estándar OGC recomendado para intercambio moderno.</p></li>
+<li><p>Shapefile (.shp/.shx/.dbf) — legado muy extendido; límites conocidos (ej. ~2 GB y campos de 10 caracteres).</p></li>
+<li><p>GeoJSON (.geojson/.json) — formato ligero para la web, definido por RFC 7946 (WGS84).</p></li>
+<li><p>CSV con geometría en WKT/WKB — tabla de texto; geometría en una columna WKT/WKB. Simple e interoperable, sin CRS/metadatos nativos.</p></li>
+<li><p>Esri File Geodatabase (.gdb) — carpeta-geodatabase con múltiples clases/tablas, índices y dominios. Óptimo en ArcGIS; soporte parcial en GDAL.</p></li>
+<li><p>KML/KMZ — XML de OGC para visualización (estilos, etiquetas). Coordenadas en WGS84; KMZ es la versión comprimida.</p></li>
+<li><p>GML — XML de OGC muy flexible; permite esquemas (XSD) y CRS. “Verboso”, útil para intercambio formal.</p></li>
+<li><p>DXF (CAD) — intercambio CAD por capas/entidades. Suele carecer de CRS/unidades; requiere limpieza al llevarlo a SIG.</p></li>
+</ul>
+</section>
+<section id="raster">
+<h3>Raster<a class="headerlink" href="#raster" title="Link to this heading">#</a></h3>
+<p>Los formatos de archivos espaciales raster representan el espacio como una malla de celdas (píxeles) con uno o varios valores por banda; cada formato equilibra compresión, tamaño, tipos de dato, manejo de NoData, pirámides (<em>overviews</em>) y organización para acceso local o en la nube. GDAL/OGR también cuenta con una <a class="reference external" href="https://gdal.org/en/stable/drivers/raster/">lista de formatos raster</a>.</p>
+<p>Los siguientes son algunos de los principales formatos raster:</p>
+<ul class="simple">
+<li><p>GeoTIFF (.tif/.tiff) — formato general más usado; georreferenciación interna, compresión y <em>overviews</em>.</p></li>
+<li><p>Cloud Optimized GeoTIFF (COG) — perfil de GeoTIFF diseñado para acceso eficiente vía solicitudes HTTP con rangos (ideal para nube).</p></li>
+<li><p>JPEG2000 (.jp2) — compresión con o sin pérdida. Se usa en teledetección.</p></li>
+<li><p>Erdas Imagine IMG (.img) — formato de trabajo clásico con amplio rango de tipos de dato y soporte de <em>overviews</em>.</p></li>
+<li><p>NetCDF (.nc) — contenedor para datos científicos multidimensionales (clima, oceanografía).</p></li>
+<li><p>GRIB (grb/grib2) — estándar WMO para distribución de información meteorológica.</p></li>
+<li><p>MBTiles (.mbtiles) — mosaicos ráster almacenados en una base SQLite, útil para teselas.</p></li>
+<li><p>GeoPackage ráster (.gpkg) — teselas ráster dentro del estándar OGC GeoPackage.</p></li>
+<li><p>Esri ASCII Grid (.asc) — grilla en texto plano; fácil de inspeccionar y portar.</p></li>
+</ul>
+</section>
+</section>
+<section id="ejemplos-de-fuentes-de-datos">
+<h2>Ejemplos de fuentes de datos<a class="headerlink" href="#ejemplos-de-fuentes-de-datos" title="Link to this heading">#</a></h2>
+<p>Los datos geoespaciales pueden encontrarse en una gran variedad de fuentes. Examine las siguientes. Descargue algunos archivos de cada una y estúdielos en QGIS.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.naturalearthdata.com/">Natural Earth</a></p></li>
+<li><p><a class="reference external" href="https://gadm.org/">GADM</a></p></li>
+<li><p><a class="reference external" href="https://www.geoboundaries.org/">geoBoundaries</a></p></li>
+<li><p><a class="reference external" href="https://www.gbif.org/">Sistema Mundial de Información sobre Biodiversidad (GBIF)</a></p></li>
+<li><p><a class="reference external" href="https://www.worldclim.org/">WorldClim</a></p></li>
+</ul>
+</section>
 <section id="infraestructuras-de-datos-espaciales">
 <h2>Infraestructuras de Datos Espaciales<a class="headerlink" href="#infraestructuras-de-datos-espaciales" title="Link to this heading">#</a></h2>
 <p>Una Infraestructura de Datos Espaciales (IDE) es el conjunto coordinado de datos geográficos, metadatos, servicios web, normas y acuerdos institucionales que facilita descubrir, acceder, integrar y reutilizar información geoespacial desde Internet. Se apoya en estándares abiertos del <a class="reference external" href="https://www.ogc.org/">Open Geospatial Consortium (OGC)</a> —por ejemplo WMS, WFS, WCS, CSW y la familia OGC API— además de normas ISO (ej. ISO 19115 para metadatos), lo que garantiza la interoperabilidad entre diferentes plataformas y organizaciones.</p>
@@ -474,6 +525,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-formatos-de-archivos">Principales formatos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectoriales">Vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raster">Raster</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-fuentes-de-datos">Ejemplos de fuentes de datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infraestructuras-de-datos-espaciales">Infraestructuras de Datos Espaciales</a></li>
 </ul>
   </nav></div>
