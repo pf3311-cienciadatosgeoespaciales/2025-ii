@@ -4,7 +4,8 @@
 ## Trabajo previo
 
 ### Tutoriales
-Gandhi, U. (2020b, febrero 1). Spatial Data Visualization and Analytics. Spatial Thoughts. https://spatialthoughts.com/courses/spatial-data-viz/
+
+Gandhi, U. (s.f.). Introduction to QGIS. Spatial Thoughts. https://courses.spatialthoughts.com/introduction-to-qgis.html
 
 
 ## Resumen
