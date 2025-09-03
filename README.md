@@ -14,6 +14,9 @@ conda update -n base -c defaults conda
 # Borrado del ambiente (si es que existe)
 # conda remove -n pf3311-2025-ii --all
 
+# Instalación de mamba
+conda install -n base mamba -c conda-forge
+
 # Creación del ambiente
 conda create -n pf3311-2025-ii
 
