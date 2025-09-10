@@ -9,7 +9,7 @@ parts:
     chapters:
     - url: https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/blob/main/contenido/informacion-general/programa-pf3311-cienciadatosgeoespaciales-2025-ii.pdf
       title: Programa del curso
-  - caption: I - Introducción a la ciencia de datos geoespaciales
+  - caption: I - INTRODUCCIÓN A LA CIENCIA DE DATOS GEOESPACIALES
     chapters:
     - file: contenido/a/introduccion-ciencia-datos
     - file: contenido/a/introduccion-ciencia-datos-geoespaciales
@@ -19,11 +19,14 @@ parts:
     - file: contenido/a/gdal-biblioteca-lectura-escritura-datos-geoespaciales
     - file: contenido/a/markdown
     - file: contenido/a/git
-  - caption: II - El lenguaje de programación Python
+  - caption: II - EL LENGUAJE DE PROGRAMACIÓN PYTHON
     chapters:
     - file: contenido/b/introduccion-python
     - file: contenido/b/lenguaje-python
     - file: contenido/b/api
+  - caption: EVALUACIONES
+    chapters:
+    - file: contenido/evaluaciones/tarea-01
   - caption: DATOS
     chapters:
     - url: https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos
