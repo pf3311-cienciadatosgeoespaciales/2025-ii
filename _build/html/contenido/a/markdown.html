@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Markdown - lenguaje de marcado &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/a/markdown';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="GDAL: biblioteca para lectura y escritura de datos geoespaciales" href="gdal-biblioteca-lectura-escritura-datos-geoespaciales.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PF-3311 Ciencia de datos geoespaciales 2025-II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    PF-3311 Ciencia de datos geoespaciales 2025-II
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">INFORMACIÓN GENERAL</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/blob/main/contenido/informacion-general/programa-pf3311-cienciadatosgeoespaciales-2025-ii.pdf">Programa del curso</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">I - Introducción a la ciencia de datos geoespaciales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos.html">Introducción a la ciencia de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentos-geodesia-cartografia.html">Fundamentos de cartografía y geodesia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuentes-formatos-datos-geoespaciales.html">Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdal-biblioteca-lectura-escritura-datos-geoespaciales.html">GDAL: biblioteca para lectura y escritura de datos geoespaciales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Markdown - lenguaje de marcado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DATOS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos">Datos en el repositorio GitHub del curso</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/issues/new?title=Issue%20on%20page%20%2Fcontenido/a/markdown.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contenido/a/markdown.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Markdown - lenguaje de marcado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-software">Instalación de software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-documento">Ejemplo de documento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-satelites-galileanos">Los satélites galileanos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encabezados">Encabezados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parrafos">Párrafos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negrita">Negrita</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#italica">Itálica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citas-textuales">Citas textuales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enlaces-hipervinculos">Enlaces (hipervínculos)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imagenes">Imágenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-numeradas">Listas numeradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-no-numeradas">Listas no numeradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notacion-matematica">Notación matemática</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-inline-math">Ejemplo de <em>inline math</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-display-math">Ejemplo de <em>display math</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursos-de-interes">Recursos de interés</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<section class="tex2jax_ignore mathjax_ignore" id="markdown-lenguaje-de-marcado">
+<h1>Markdown - lenguaje de marcado<a class="headerlink" href="#markdown-lenguaje-de-marcado" title="Link to this heading">#</a></h1>
+<section id="trabajo-previo">
+<h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Link to this heading">#</a></h2>
+<section id="instalacion-de-software">
+<h3>Instalación de software<a class="headerlink" href="#instalacion-de-software" title="Link to this heading">#</a></h3>
+<p>Instale el editor de código fuente <a class="reference internal" href="#../software/vscode.md"><span class="xref myst">Visual Studio Code</span></a>.</p>
+</section>
+<section id="tutoriales">
+<h3>Tutoriales<a class="headerlink" href="#tutoriales" title="Link to this heading">#</a></h3>
+<p><em>Markdown Tutorial</em>. (s.f.). Recuperado el 1 de marzo de 2024, de <a class="reference external" href="https://www.markdowntutorial.com/">https://www.markdowntutorial.com/</a></p>
+</section>
+<section id="otros">
+<h3>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
+<p>Cree una cuenta gratuita en la plataforma de desarrollo colaborativo <a class="reference external" href="https://github.com/">GitHub</a>.</p>
+</section>
+</section>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> es un <a class="reference external" href="https://es.wikipedia.org/wiki/Lenguaje_de_marcado">lenguaje de marcado</a>, creado en 2004 por John Gruber y Aaron Swartz. Las “marcas” se utilizan para especificar aspectos de la estructura (ej. títulos, encabezados), estilo (ej. negritas, itálicas) y semántica de un documento. Markdown se caracteriza por ser más sencillo de leer y de usar que otros lenguajes de marcado (ej. <a class="reference external" href="https://es.wikipedia.org/wiki/HTML">Lenguaje de Marcado de Hipertexto o HTML</a>), por lo que se considera un <a class="reference external" href="https://es.wikipedia.org/wiki/Lenguaje_de_marcas_ligero">lenguaje de marcado ligero</a>.</p>
+<p>Los documentos escritos en Markdown pueden exportarse a una gran variedad de formatos (ej. HTML, DOC, PDF, LaTex) para ser usados en libros, presentaciones o páginas web, entre otros.</p>
+<p>Las variaciones de Markdown, también llamadas <em>flavors</em>, son extensiones o modificaciones de la <a class="reference internal" href="#(https://daringfireball.net/projects/markdown/)"><span class="xref myst">especificación original</span></a>. Entre las más populares están:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Python-Markdown/markdown">Python Markdown</a>: para el lenguaje Python.</p></li>
+<li><p><a class="reference external" href="https://help.github.com/en/github/writing-on-github">GitHub Flavored Markdown</a>: para la plataforma GitHub.</p></li>
+<li><p><a class="reference external" href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc’s Markdown</a>: para el programa <a class="reference external" href="https://pandoc.org/">Pandoc</a> de conversión entre formatos.</p></li>
+<li><p><a class="reference external" href="https://quarto.org/">Quarto</a>: más que un <em>flavor</em> de Markdown es un sistema de publicación de documentos técnicos y científicos que utiliza Markdown. Tiene soporte para incluir y ejecutar código en R, Python, Julia y Observable.</p></li>
+</ul>
+<p>Puede encontrarse una lista más extensa de variaciones de Markdown en <a class="reference external" href="https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors">Markdown Flavors</a>.</p>
+</section>
+<section id="ejemplo-de-documento">
+<h2>Ejemplo de documento<a class="headerlink" href="#ejemplo-de-documento" title="Link to this heading">#</a></h2>
+<p>El siguiente es un ejemplo de la sintaxis de Markdown, con marcas para un encabezado, texto en negrita, texto en itálica, un hipervínculo y una imagen.</p>
+<hr class="docutils" />
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="gu">### Los satélites galileanos</span>
+
+Se llaman <span class="gs">**satélites galileanos**</span> los cuatro satélites
+de Júpiter descubiertos en 1610 por 
+[<span class="nt">Galileo Galilei</span>](<span class="na">https://es.wikipedia.org/wiki/Galileo_Galilei</span>): 
+<span class="ge">*Ío*</span>, <span class="ge">*Europa*</span>, <span class="ge">*Ganimedes*</span> y <span class="ge">*Calisto*</span>. 
+Son los más grandes de los satélites de Júpiter, 
+siendo visibles incluso con telescopios de baja potencia.
+
+![<span class="nt">Imagen de Júpiter y los satélites</span>](<span class="na">https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Jupiter_and_the_Galilean_Satellites.jpg/168px-Jupiter_and_the_Galilean_Satellites.jpg</span>)
+
+<span class="gs">**Figura 1**</span>. Los cuatro satélites galileanos, 
+en una composición que compara sus tamaños con el tamaño de Júpiter. 
+En orden descendente, son <span class="ge">*Ío*</span>, <span class="ge">*Europa*</span>, <span class="ge">*Ganimedes*</span> y <span class="ge">*Calisto*</span>.
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>El documento se visualiza de la siguiente manera:</p>
+<hr class="docutils" />
+<section id="los-satelites-galileanos">
+<h3>Los satélites galileanos<a class="headerlink" href="#los-satelites-galileanos" title="Link to this heading">#</a></h3>
+<p>Se llaman <strong>satélites galileanos</strong> los cuatro satélites
+de Júpiter descubiertos en 1610 por
+<a class="reference external" href="https://es.wikipedia.org/wiki/Galileo_Galilei">Galileo Galilei</a>:
+<em>Ío</em>, <em>Europa</em>, <em>Ganimedes</em> y <em>Calisto</em>.
+Son los más grandes de los satélites de Júpiter,
+siendo visibles incluso con telescopios de baja potencia.</p>
+<p><img alt="Imagen de Júpiter y los satélites" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Jupiter_and_the_Galilean_Satellites.jpg/168px-Jupiter_and_the_Galilean_Satellites.jpg" /></p>
+<p><strong>Figura 1</strong>. Los cuatro satélites galileanos,
+en una composición que compara sus tamaños con el tamaño de Júpiter.
+En orden descendente, son <em>Ío</em>, <em>Europa</em>, <em>Ganimedes</em> y <em>Calisto</em>.</p>
+<hr class="docutils" />
+<p>El contenido de este ejemplo está basado en <a class="reference external" href="https://es.wikipedia.org/wiki/Sat%C3%A9lite_galileano">Satélite galileano - Wikipedia, la enciclopedia libre</a>.</p>
+</section>
+</section>
+<section id="sintaxis">
+<h2>Sintaxis<a class="headerlink" href="#sintaxis" title="Link to this heading">#</a></h2>
+<p>En esta sección, se explican los principales elementos de sintaxis de Markdown y se muestran sus salidas.</p>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  td {
+    vertical-align: middle;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  th {
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }  
+</style>
+<section id="encabezados">
+<h3>Encabezados<a class="headerlink" href="#encabezados" title="Link to this heading">#</a></h3>
+<p>Hay seis niveles de encabezados en Markdown, siendo el nivel 1 el de letras más grandes y el 6 el de letras más pequeñas. Se especifican mediante símbolos de numeral (<code class="docutils literal notranslate"><span class="pre">#</span></code>) antes del texto del encabezado (note el espacio entre el último signo de numeral y el inicio del texto).</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      # Encabezado de nivel 1
+    </td>
+    <td>
+      <h1>Encabezado de nivel 1</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ## Encabezado de nivel 2
+    </td>
+    <td>
+      <h2>Encabezado de nivel 2</h2>
+    </td>
+  </tr>  
+  <tr>
+    <td>
+      ### Encabezado de nivel 3
+    </td>
+    <td>
+      <h3>Encabezado de nivel 3</h3>
+    </td>
+  </tr>  
+  <tr>
+    <td>
+      #### Encabezado de nivel 4
+    </td>
+    <td>
+      <h4>Encabezado de nivel 4</h4>
+    </td>
+  </tr>    
+  <tr>
+    <td>
+      ##### Encabezado de nivel 5
+    </td>
+    <td>
+      <h5>Encabezado de nivel 5</h5>
+    </td>
+  </tr>    
+  <tr>
+    <td>
+      ###### Encabezado de nivel 6
+    </td>
+    <td>
+      <h6>Encabezado de nivel 6</h6>
+    </td>
+  </tr>    
+</table> 
+<p>Para los encabezados de nivel 1 y nivel 2, existe una sintaxis alterna, con símbolos de igual (<code class="docutils literal notranslate"><span class="pre">=====</span></code>) o guiones (<code class="docutils literal notranslate"><span class="pre">-----</span></code>) bajo el texto del encabezado.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      Otro encabezado de nivel 1<br>
+      ==========================
+    </td>
+    <td>
+      <h1>Otro encabezado de nivel 1</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Otro encabezado de nivel 2<br>
+      --------------------------
+    </td>
+    <td>
+      <h2>Otro encabezado de nivel 2</h2>
+    </td>
+  </tr>  
+</table>
+</section>
+<section id="parrafos">
+<h3>Párrafos<a class="headerlink" href="#parrafos" title="Link to this heading">#</a></h3>
+<p>Los párrafos deben separarse mediante (al menos) una línea en blanco. Un simple cambio de línea no generará un nuevo párrafo.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      Este es el texto que corresponde al primer párrafo de un documento.<p><p>
+      Este es el texto que corresponde al segundo párrafo de un documento.
+    </td>
+    <td>
+      Este es el texto que corresponde al primer párrafo de un documento.<p><p>
+      Este es el texto que corresponde al segundo párrafo de un documento.
+    </td>
+  </tr>
+</table>
+</section>
+<section id="negrita">
+<h3>Negrita<a class="headerlink" href="#negrita" title="Link to this heading">#</a></h3>
+<p>Hay dos sintaxis para especificar texto en <em>negrita</em>: con dos asteriscos (<code class="docutils literal notranslate"><span class="pre">**</span></code>) o con dos guiones bajos (<code class="docutils literal notranslate"><span class="pre">__</span></code>), antes y después del texto.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      **Texto en negrita**
+    </td>
+    <td>
+      <strong>Texto en negrita</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      __Otro texto en negrita__
+    </td>
+    <td>
+      <strong>Otro texto en negrita</strong>
+    </td>
+  </tr>  
+</table>
+</section>
+<section id="italica">
+<h3>Itálica<a class="headerlink" href="#italica" title="Link to this heading">#</a></h3>
+<p>Hay dos sintaxis para especificar texto en <em>itálica</em>: con un asterisco (<code class="docutils literal notranslate"><span class="pre">*</span></code>) o con un guión bajo (<code class="docutils literal notranslate"><span class="pre">_</span></code>), antes y después del texto.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      *Texto en itálica*
+    </td>
+    <td>
+      <em>Texto en itálica</em>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      _Otro texto en itálica_
+    </td>
+    <td>
+      <em>Otro texto en itálica</em>
+    </td>
+  </tr>  
+</table>
+</section>
+<section id="citas-textuales">
+<h3>Citas textuales<a class="headerlink" href="#citas-textuales" title="Link to this heading">#</a></h3>
+<p>Se especifican con un símbolo de “mayor que” (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) antes de cada línea.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      > *And on the pedestal these words appear:*<br>
+      > *"My name is Ozymandias, king of kings:*<br>
+      > *Look on my works, ye Mighty, and despair!"*<br>
+      Percy Bysshe Shelley, "Ozymandias" (1818)
+    </td>
+    <td>
+      <blockquote>
+        <em>
+          "And on the pedestal these words appear:<br>
+          "My name is Ozymandias, king of kings:<br>
+          Look on my works, ye Mighty, and despair!"<br>
+        </em>
+      </blockquote>
+      Percy Bysshe Shelley, "Ozymandias" (1818)
+    </td>
+  </tr>
+</table>
+</section>
+<section id="enlaces-hipervinculos">
+<h3>Enlaces (hipervínculos)<a class="headerlink" href="#enlaces-hipervinculos" title="Link to this heading">#</a></h3>
+<p>Se definen con paréntesis cuadrados (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) seguidos de paréntesis redondos (<code class="docutils literal notranslate"><span class="pre">()</span></code>). En los paréntesis cuadrados se coloca (opcionalmente) el texto del enlace y en los redondos la dirección del documento al que conduce el enlace.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      [Proyecto Gutenberg](https://www.gutenberg.org/)
+    </td>
+    <td>
+      <a href="https://www.gutenberg.org/">Proyecto Gutenberg</a>
+    </td>
+  </tr>
+</table>
+</section>
+<section id="imagenes">
+<h3>Imágenes<a class="headerlink" href="#imagenes" title="Link to this heading">#</a></h3>
+<p>Se definen con un signo de admiración de cierre (<code class="docutils literal notranslate"><span class="pre">!</span></code>), paréntesis cuadrados (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) y paréntesis redondos (<code class="docutils literal notranslate"><span class="pre">()</span></code>). En los paréntesis cuadrados se coloca (opcionalmente) un texto alternativo de la imagen y en los redondos la dirección de la imagen, ya sea local o remota. Una imagen local se encuentra en la misma computadora en la que está el documento Markdown que la referencia, mientras que una imagen remota se encuentra en otra computadora a la que se accede mediante un protocolo de redes como el <a class="reference external" href="https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto">Protocolo de transferencia de hipertexto (HTTP)</a>.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+      ![Imagen local](img/maquina-turing.png)
+    </td>
+    <td>
+      <img src="../../_images/maquina-turing.png" alt="Imagen local">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ![Imagen remota](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Turing_Machine.png/640px-Turing_Machine.png)
+    </td>
+    <td>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Turing_Machine.png/640px-Turing_Machine.png">
+    </td>
+  </tr>  
+</table>
+<p>Markdown no cuenta con sintaxis para especificar el tamaño de una imagen, pero esto puede lograrse con el <a class="reference external" href="https://es.wikipedia.org/wiki/HTML">Lenguaje de marcado de hipertexto (HTML, <em>HyperText Markup Language</em>)</a>, su elemento <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">img</a> y sus atributos <code class="docutils literal notranslate"><span class="pre">height</span></code> y <code class="docutils literal notranslate"><span class="pre">width</span></code>, los cuales especifican la altura y el ancho de una imagen (las unidades por defecto son pixeles).</p>
+<p>Por ejemplo, la expresión HTML:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;img</span> <span class="pre">src=&quot;img/maquina-turing.png&quot;</span> <span class="pre">height=&quot;300&quot;</span> <span class="pre">alt=&quot;Imagen</span> <span class="pre">local&quot;&gt;</span></code></p>
+<p>genera como salida una imagen de 300 pixeles de altura:</p>
+<img src="../../_images/maquina-turing.png" height="300" alt="Imagen local"/>
+<p>Si se usa solo el atributo <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code> se ajusta automáticamente y viceversa.</p>
+</section>
+<section id="listas-numeradas">
+<h3>Listas numeradas<a class="headerlink" href="#listas-numeradas" title="Link to this heading">#</a></h3>
+<p>Se definen con números (<code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">2.</span> <span class="pre">3.</span> <span class="pre">...</span></code>) antes de cada elemento.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+1. Primer elemento.<br>  
+2. Segundo elemento.<br>  
+3. Tercer elemento.<br>  
+    </td>
+    <td>
+1. Primer elemento.<br>
+2. Segundo elemento.<br>
+3. Tercer elemento.<br>
+    </td>
+  </tr>
+</table>
+</section>
+<section id="listas-no-numeradas">
+<h3>Listas no numeradas<a class="headerlink" href="#listas-no-numeradas" title="Link to this heading">#</a></h3>
+<p>Se definen con guiones (<code class="docutils literal notranslate"><span class="pre">-</span></code>) o asteriscos (<code class="docutils literal notranslate"><span class="pre">*</span></code>) antes de cada elemento.</p>
+<table>
+  <tr>
+    <th>Sintaxis Markdown</th>
+    <th>Salida</th>
+  </tr>
+  <tr>
+    <td>
+- Un elemento.<br>  
+- Otro elemento.<br>  
+- Otro elemento más.<br>  
+    </td>
+    <td>
+- Un elemento.<br>  
+- Otro elemento.<br>  
+- Otro elemento más.<br>  
+    </td>
+  </tr>
+</table>
+</section>
+<section id="notacion-matematica">
+<h3>Notación matemática<a class="headerlink" href="#notacion-matematica" title="Link to this heading">#</a></h3>
+<p>Las expresiones en notación matemática (ej. ecuaciones) se escriben con base en la sintaxis de <a class="reference external" href="https://latex-project.org/">LaTeX</a>. Se delimitan (al inicio y al final) con:</p>
+<ul class="simple">
+<li><p>Un símbolo de dólar (<code class="docutils literal notranslate"><span class="pre">$</span></code>), para ecuaciones dentro de un renglón (<em>inline math</em>).</p></li>
+<li><p>Dos símbolos de dólar (<code class="docutils literal notranslate"><span class="pre">$$</span></code>), para ecuaciones en su propio bloque (<em>display math</em>).</p></li>
+</ul>
+<section id="ejemplo-de-inline-math">
+<h4>Ejemplo de <em>inline math</em><a class="headerlink" href="#ejemplo-de-inline-math" title="Link to this heading">#</a></h4>
+<p><strong>Sintaxis Markdown</strong></p>
+<p>Equivalencia entre masa y energía: $E = mc^{2}$</p>
+<p><strong>Salida</strong><br />
+Equivalencia entre masa y energía: <span class="math notranslate nohighlight">\(E = mc^{2}\)</span></p>
+</section>
+<section id="ejemplo-de-display-math">
+<h4>Ejemplo de <em>display math</em><a class="headerlink" href="#ejemplo-de-display-math" title="Link to this heading">#</a></h4>
+<p><strong>Sintaxis Markdown</strong></p>
+<p>Equivalencia entre masa y energía:</p>
+<p>$$E = mc^{2}$$</p>
+<p><strong>Salida</strong><br />
+Equivalencia entre masa y energía:</p>
+<div class="math notranslate nohighlight">
+\[E = mc^{2}\]</div>
+<p>Para más detalles sobre la sintaxis de las expresiones matemáticas, se recomienda consultar:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions">Writing mathematical expressions - GitHub Docs</a></p></li>
+<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX/Mathematics</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Con VSCode, cree un documento Markdown llamado <code class="docutils literal notranslate"><span class="pre">README.md</span></code> y escriba en este un breve <em>curriculum</em> académico o profesional (puede elegir otro tema).</p>
+<p>a. Incluya información como: nombre, fotografía, datos de contacto, áreas de interés, carrera, cursos aprobados, publicaciones, etc.<br />
+b. Puede usar información ficticia (<strong>no incluya datos confidenciales o sensibles</strong>).<br />
+c. Especifique la fuente de las imágenes (y de cualquier otra información para la que sea necesario) y no utilice imágenes para las que no tiene autorización. Considere utilizar sitios con imágenes con licencias abiertas (ej. <a class="reference external" href="https://commons.wikimedia.org/">Wikimedia Commons</a>, <a class="reference external" href="https://unsplash.com/">Unsplash</a>, <a class="reference external" href="https://www.freeimages.com/">FreeImages</a>).<br />
+d. Asegúrese de utilizar los siguientes elementos de sintaxis Markdown:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> -   Encabezados de varios niveles.
+ -   Negritas e itálicas.
+ -   Listas.
+ -   Enlaces a sitios web.
+ -   Imágenes (al menos una local y una remota).
+</pre></div>
+</div>
+</li>
+<li><p>En GitHub, cree un repositorio llamado <code class="docutils literal notranslate"><span class="pre">cv</span></code> y suba el archivo creado en el paso 1.</p></li>
+<li><p>Publique el documento en <a class="reference external" href="https://pages.github.com/">GitHub Pages</a> con <em>Settings &gt; Pages &gt; Branch &gt; Save</em>.</p></li>
+</ol>
+</section>
+<section id="recursos-de-interes">
+<h2>Recursos de interés<a class="headerlink" href="#recursos-de-interes" title="Link to this heading">#</a></h2>
+<p><em>Daring Fireball: Markdown</em>. (s. f.). Recuperado 25 de marzo de 2023, de <a class="reference external" href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a></p>
+<p><em>LaTeX/Mathematics—Wikibooks, open books for an open world</em>. (s. f.). Recuperado 25 de marzo de 2023, de <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a></p>
+<p><em>Markdown Guide</em>. (s. f.). Recuperado 10 de abril de 2022, de <a class="reference external" href="https://www.markdownguide.org/">https://www.markdownguide.org/</a></p>
+<p>Writing mathematical expressions. (s. f.). <em>GitHub Docs</em>. Recuperado 25 de marzo de 2023, de <a class="reference external" href="https://ghdocs-prod.azurewebsites.net/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions">https://ghdocs-prod.azurewebsites.net/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./contenido/a"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gdal-biblioteca-lectura-escritura-datos-geoespaciales.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GDAL: biblioteca para lectura y escritura de datos geoespaciales</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-software">Instalación de software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-documento">Ejemplo de documento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-satelites-galileanos">Los satélites galileanos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxis">Sintaxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encabezados">Encabezados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parrafos">Párrafos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negrita">Negrita</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#italica">Itálica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citas-textuales">Citas textuales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enlaces-hipervinculos">Enlaces (hipervínculos)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imagenes">Imágenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-numeradas">Listas numeradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-no-numeradas">Listas no numeradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notacion-matematica">Notación matemática</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-inline-math">Ejemplo de <em>inline math</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-display-math">Ejemplo de <em>display math</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursos-de-interes">Recursos de interés</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Manuel Vargas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright CC BY-SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
