@@ -19,6 +19,11 @@ parts:
     - file: contenido/a/gdal-biblioteca-lectura-escritura-datos-geoespaciales
     - file: contenido/a/markdown
     - file: contenido/a/git
+  - caption: II - El lenguaje de programación Python
+    chapters:
+    - file: contenido/a/introduccion-python
+    - file: contenido/a/lenguaje-python
+    - file: contenido/a/api
   - caption: DATOS
     chapters:
     - url: https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos

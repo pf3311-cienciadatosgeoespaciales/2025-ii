@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introducción al lenguaje de programación Python &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+    <title>Introducción a Python &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -191,6 +191,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../a/qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a/fuentes-formatos-datos-geoespaciales.html">Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html">GDAL: biblioteca para lectura y escritura de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/markdown.html">Markdown - lenguaje de marcado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/git.html">Git - sistema de control de versiones</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">DATOS</span></p>
 <ul class="nav bd-sidenav">
@@ -380,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción al lenguaje de programación Python</h1>
+    <h1>Introducción a Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,32 +393,41 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecturas">Lecturas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-lenguaje-de-programacion-python">El lenguaje de programación Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historia">Historia</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-caracteristicas-del-lenguaje">Principales características del lenguaje</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-zen-de-python">El Zen de Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-de-estilo-para-codigo-python">Guía de estilo para código Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#programas-pitonicos">Programas “pitónicos”</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenciamiento">Licenciamiento</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-2-y-python-3">Python 2 y Python 3</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-datos-geoespaciales">Aplicación en datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-desarrollo">Herramientas para desarrollo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de texto</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-integrados-de-desarrollo">Ambientes integrados de desarrollo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-y-jupyter-lab">Jupyter Notebook y Jupyter Lab</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">Instalación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-anaconda-miniconda">Con Anaconda/Miniconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-miniconda-anaconda">Con Miniconda/Anaconda</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-de-ejecucion-en-la-nube">Ambientes de ejecución en la nube</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-software">Instalación de software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollo-y-ejecucion-de-programas-en-python">Desarrollo y ejecución de programas en Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">Referencias bibliográficas</a></li>
@@ -431,69 +442,82 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-al-lenguaje-de-programacion-python">
-<h1>Introducción al lenguaje de programación Python<a class="headerlink" href="#introduccion-al-lenguaje-de-programacion-python" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-python">
+<h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Link to this heading">#</a></h1>
 <section id="trabajo-previo">
 <h2>Trabajo previo<a class="headerlink" href="#trabajo-previo" title="Link to this heading">#</a></h2>
-<section id="tutoriales">
-<h3>Tutoriales<a class="headerlink" href="#tutoriales" title="Link to this heading">#</a></h3>
-<p>Severance, C. (s. f.). PY4E - Python for Everybody. Recuperado 1 de enero de 2022, de <a class="reference external" href="https://www.py4e.com/">https://www.py4e.com/</a> (Lecciones en <a class="reference external" href="https://www.py4e.com/lessons">https://www.py4e.com/lessons</a>)</p>
+<section id="lecturas">
+<h3>Lecturas<a class="headerlink" href="#lecturas" title="Link to this heading">#</a></h3>
+<p>Severance, D. C. R. (2016). <em>Chapter 1: Why should you learn to write programs?</em> y <em>Chapter 2: Variables, expressions, and statements</em> en <em>Python for Everybody: Exploring Data in Python 3</em> (S. Blumenberg &amp; E. Hauser, Eds.). CreateSpace Independent Publishing Platform. <a class="reference external" href="https://www.py4e.com/html3/">https://www.py4e.com/html3/</a></p>
 </section>
 </section>
-<section id="resumen">
-<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
-<p>En este capítulo, se introduce el lenguaje de programación Python.</p>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p><strong>Python</strong> es un lenguaje de programación de propósito general ampliamente utilizado en áreas como desarrollo web, aprendizaje automático e inteligencia artificial, entre otras. Fue creado por <strong>Guido van Rossum</strong> a finales de la década de 1980.</p>
+<p>Python es un lenguaje <strong>interpretado</strong>, <strong>multiplataforma</strong>, con un <strong>sistema de tipos de datos dinámico</strong>, <strong>administración automática de memoria</strong> y con soporte para varios paradigmas de programación, incluyendo <strong>programación orientada a objetos</strong>, <strong>programación funcional</strong>, <strong>programación imperativa</strong> y <strong>programación procedimental</strong>.</p>
+<p>La comunidad de programadores de Python ha establecido varios principios de diseño de programas y un conjunto de mejores prácticas. Un programa se considera <strong>“pitónico”</strong> si sigue estos principios y prácticas.</p>
+<p>Python es también muy popular en el área de <strong>procesamiento de datos geoespaciales</strong>, en dónde se emplea como lenguaje de desarrollo de aplicaciones y como lenguaje de <em>scripting</em> en sistemas de información geográfica, sistemas administradores de bases de datos y servidores web de mapas.</p>
 </section>
 <section id="el-lenguaje-de-programacion-python">
 <h2>El lenguaje de programación Python<a class="headerlink" href="#el-lenguaje-de-programacion-python" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://www.python.org/">Python</a> es un lenguaje de programación de propósito general que ha alcanzado una <a class="reference external" href="https://www.infoworld.com/article/3331603/pythons-popularity-surges-as-a-mainstay-language.html">gran popularidad en los últimos años</a>. Fue declarado el lenguaje del año en 2020 y 2021 por el índice <a class="reference external" href="https://www.tiobe.com/tiobe-index/">Tiobe</a> de popularidad de lenguajes de programación, debido al crecimiento de su uso en diversas áreas, entre las que destacan la <a class="reference external" href="https://es.wikipedia.org/wiki/Ciencia_de_datos">ciencia de datos</a> y el <a class="reference external" href="https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico">aprendizaje automatizado</a>, además de otras como desarrollo web, <em>scripting</em> y visualización de datos, entre muchas. Esta popularidad es respaldada por otras fuentes como el índice <a class="reference external" href="http://pypl.github.io/PYPL.html">PYPL</a> y el sitio de preguntas y respuestas para programadores <a class="reference external" href="https://insights.stackoverflow.com/survey/2021#technology-most-popular-technologies">Stack Overflow</a>. Este último lo consideró, en 2017, el <a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/?_ga=2.202250515.367846061.1552160385-2089845565.1546395318">lenguaje de programación de mayor crecimiento en los países de alto ingreso</a>, como se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-crecimiento-lenguajes</span></code>.</p>
+<p><a class="reference external" href="https://www.python.org/">Python</a> es un lenguaje de programación de propósito general que ha alcanzado una gran popularidad en los últimos años. Fue declarado el lenguaje del año en 2020 y 2021 por el índice <a class="reference external" href="https://www.tiobe.com/tiobe-index/">Tiobe</a> de popularidad de lenguajes de programación, debido al crecimiento de su uso en diversas áreas, entre las que destacan la <a class="reference external" href="https://es.wikipedia.org/wiki/Ciencia_de_datos">ciencia de datos</a> y el <a class="reference external" href="https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico">aprendizaje automático</a>, además de otras como desarrollo web, <em>scripting</em> y visualización de datos, entre muchas. Esta popularidad es respaldada por otras fuentes como el índice <a class="reference external" href="http://pypl.github.io/PYPL.html">PYPL</a> y el sitio de preguntas y respuestas para programadores <a class="reference external" href="https://survey.stackoverflow.co/2024/technology#2-programming-scripting-and-markup-languages">Stack Overflow</a>. Este último lo consideró, en 2017, el <a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/?_ga=2.202250515.367846061.1552160385-2089845565.1546395318">lenguaje de programación de mayor crecimiento en los países de alto ingreso</a>, como se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-crecimiento-lenguajes</span></code>.</p>
 <figure class="align-default" id="figure-crecimiento-lenguajes">
 <img alt="../../_images/growth_major_languages.png" src="../../_images/growth_major_languages.png" />
 <figcaption>
-<p><span class="caption-text">Crecimiento de los principales lenguajes de programación en los países de alto ingreso. Fuente: <span id="id1">[<a class="reference internal" href="#id46" title="David Robinson. The Incredible Growth of Python. September 2017. URL: https://stackoverflow.blog/2017/09/06/incredible-growth-python/ (visited on 2022-01-20).">Rob17</a>]</span>.</span><a class="headerlink" href="#figure-crecimiento-lenguajes" title="Link to this image">#</a></p>
+<p><span class="caption-text">Crecimiento de los principales lenguajes de programación en los países de alto ingreso. Imagen de <span id="id1">[<a class="reference internal" href="#id46" title="David Robinson. The Incredible Growth of Python. September 2017. URL: https://stackoverflow.blog/2017/09/06/incredible-growth-python/ (visited on 2022-01-20).">Rob17</a>]</span>.</span><a class="headerlink" href="#figure-crecimiento-lenguajes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Python es ampliamente utilizado en enseñanza de la programación. En 2014, era el <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">lenguaje más empleado en cursos introductorios de programación de las principales universidades de Estados Unidos</a>, como puede apreciarse en el gráfico de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-lenguajes-universidades</span></code>.</p>
+<p>Python también es ampliamente utilizado en enseñanza de la programación. En 2014, era el <a class="reference external" href="https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-u-s-universities/fulltext">lenguaje más empleado en cursos introductorios de programación de las principales universidades de Estados Unidos</a>, como puede apreciarse en el gráfico de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-lenguajes-universidades</span></code>.</p>
 <figure class="align-default" id="figure-lenguajes-universidades">
 <img alt="../../_images/top-languajes-universities.png" src="../../_images/top-languajes-universities.png" />
 <figcaption>
-<p><span class="caption-text">Lenguajes de programación utilizados en los departamentos de ciencias de la computación de las principales universidades de Estados Unidos. Fuente: <span id="id2">[<a class="reference internal" href="#id47" title="Philip Guo. Python Is Now the Most Popular Introductory Teaching Language at Top ­U.S. ­Universities. July 2014. URL: https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext (visited on 2022-01-20).">Guo14</a>]</span>.</span><a class="headerlink" href="#figure-lenguajes-universidades" title="Link to this image">#</a></p>
+<p><span class="caption-text">Lenguajes de programación utilizados en los departamentos de ciencias de la computación de las principales universidades de Estados Unidos. Imagen de <span id="id2">[<a class="reference internal" href="#id47" title="Philip Guo. Python Is Now the Most Popular Introductory Teaching Language at Top ­U.S. ­Universities. July 2014. URL: https://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext (visited on 2022-01-20).">Guo14</a>]</span>.</span><a class="headerlink" href="#figure-lenguajes-universidades" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Este uso en enseñanza se debe, entre otras razones, a que los programas en Python son más fáciles de leer y requieren menos líneas de <a class="reference external" href="https://en.wikipedia.org/wiki/Source_code">código fuente</a> que otros lenguajes de amplia difusión, tales como <a class="reference external" href="http://oracle.com/java/">Java</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> o <a class="reference external" href="https://isocpp.org/">C++</a>.</p>
+<p>Este uso en enseñanza se debe, entre otras razones, a que los programas en Python son más fáciles de leer y requieren menos líneas de código fuente que otros lenguajes de amplia difusión, tales como Java, C o C++.</p>
 <section id="historia">
 <h3>Historia<a class="headerlink" href="#historia" title="Link to this heading">#</a></h3>
 <p>Python fue creado por el programador holandés <a class="reference external" href="https://gvanrossum.github.io//">Guido van Rossum</a>, quién concibió el diseño original del lenguaje a finales de la década de 1980 y dio a conocer la primera versión en 1991.</p>
-<p>El nombre del lenguaje es un homenaje al grupo de comedia británico <a class="reference external" href="https://es.wikipedia.org/wiki/Monty_Python">Monty Python</a>. <a class="reference external" href="https://www.python.org/doc/essays/foreword/">Según van Rossum</a>, en diciembre de 1989 buscaba un proyecto de programación como “pasatiempo” durante los días cercanos a la navidad, por lo que decidió escribir un interpretador para un lenguaje de programación en el que había estado pensando recientemente. Escogió el nombre Python por encontrarse en un “humor ligeramente irreverente” y ser un gran aficionado al programa de televisión <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus">“El circo volador de Monty Python” (<em>Monty Python’s Flying Circus</em>)</a> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-monty-python</span></code>).</p>
+<p>El nombre del lenguaje es un homenaje al grupo de comedia británico <a class="reference external" href="https://es.wikipedia.org/wiki/Monty_Python">Monty Python</a>. <a class="reference external" href="https://www.python.org/doc/essays/foreword/">Según van Rossum</a>, en diciembre de 1989 buscaba un proyecto de programación como “pasatiempo” durante los días cercanos a la navidad, por lo que decidió escribir un interpretador para un lenguaje de programación en el que había estado pensando recientemente. Escogió el nombre Python por encontrarse en un “humor ligeramente irreverente” y ser un gran aficionado al programa de televisión <a class="reference external" href="https://es.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus">“El circo volador de Monty Python” (<em>Monty Python’s Flying Circus</em>)</a> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-monty-python</span></code>).</p>
 <figure class="align-default" id="figure-monty-python">
 <img alt="../../_images/montypython.jpg" src="../../_images/montypython.jpg" />
 <figcaption>
 <p><span class="caption-text">El circo volador de Monty Python. Fuente: <a class="reference external" href="http://www.imdb.com/title/tt0063929/">Internet Movie Database (IMDB)</a>.</span><a class="headerlink" href="#figure-monty-python" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>La “cultura” de Python ocasionalmente hace referencia a Monty Python en tutoriales, ejemplos y otros materiales. Por ejemplo, en el <a class="reference external" href="https://en.wikipedia.org/wiki/Metasyntactic_variable">uso de <em>spam</em>, <em>ham</em> y <em>eggs</em> como variables metasintéticas</a> en sustitución de las tradicionales <a class="reference external" href="https://en.wikipedia.org/wiki/Foobar"><em>foo</em>, <em>bar</em> y <em>baz</em></a>, en alusión al <em>sketch</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> de Monty Python) (<a class="reference external" href="https://www.youtube.com/watch?v=_bW4vEo1F4E">video del <em>sketch</em></a>).</p>
+<p>La “cultura” de Python ocasionalmente hace referencia a Monty Python en tutoriales, ejemplos y otros materiales. Por ejemplo, en el <a class="reference external" href="https://en.wikipedia.org/wiki/Metasyntactic_variable">uso de <em>spam</em>, <em>ham</em> y <em>eggs</em> como variables metasintéticas</a> en sustitución de las tradicionales <a class="reference external" href="https://en.wikipedia.org/wiki/Foobar"><em>foo</em>, <em>bar</em> y <em>baz</em></a>, en alusión al <em>sketch</em> <a class="reference external" href="https://es.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> (<a class="reference external" href="https://www.youtube.com/watch?v=_bW4vEo1F4E">video del <em>sketch</em></a>).</p>
 </section>
 <section id="principales-caracteristicas-del-lenguaje">
 <h3>Principales características del lenguaje<a class="headerlink" href="#principales-caracteristicas-del-lenguaje" title="Link to this heading">#</a></h3>
 <p>La filosofía de diseño de Python enfatiza la importancia de que los programas sean fáciles de leer, de manera que los programadores puedan entender rápidamente su propósito, control de flujo y funcionamiento. Esto facilita el mantenimiento de los programas existentes y disminuye la necesidad de crear otros nuevos.</p>
 <p>Las siguientes son otras características importantes del lenguaje Python:</p>
 <ul class="simple">
-<li><p>Es <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">interpretado</a>: las instrucciones se traducen una por una a <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">lenguaje máquina</a>, a diferencia de los <a class="reference external" href="https://en.wikipedia.org/wiki/Compiler">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.</p></li>
-<li><p>Tiene un <a class="reference external" href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia de un sistema de tipos de datos estático, en el que las variables solo pueden tener un tipo de datos. La mayoría de los lenguajes de tipos dinámicos son también lenguajes interpretados.</p></li>
-<li><p>Cuenta con <a class="reference external" href="https://docs.python.org/3/c-api/memory.html">administración automática de memoria</a>: el interpretador se encarga de asignar y administrar la memoria de las variables, sin intervención del programador. Esto incluye un sistema de <a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">recolección de basura</a>, que libera la memoria de las variables que no están siendo utilizadas.</p></li>
-<li><p>Soporta varios <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. En el caso de Python, incluye <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">programación orientada a objetos</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Imperative_programming">programación imperativa</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">programación funcional</a> y <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">programación procedimental</a>.</p></li>
-<li><p>Es <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-platform_software">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Microsoft Windows, macOS, Linux).</p></li>
+<li><p>Es <a class="reference external" href="https://es.wikipedia.org/wiki/Int%C3%A9rprete_(inform%C3%A1tica)">interpretado</a>: las instrucciones se traducen una por una a <a class="reference external" href="https://es.wikipedia.org/wiki/Lenguaje_de_m%C3%A1quina">lenguaje de máquina</a>, a diferencia de los <a class="reference external" href="https://es.wikipedia.org/wiki/Compilador">lenguajes compilados</a>, que traducen de manera conjunta las instrucciones de una unidad completa (ej. un programa o una biblioteca). Los lenguajes interpretados tienden a ser más lentos que los compilados, pero también son más flexibles como entornos de desarrollo y depuración.</p></li>
+<li><p>Tiene un <a class="reference external" href="https://es.wikipedia.org/wiki/Tipado_din%C3%A1mico">sistema de tipos de datos dinámico</a>: las variables pueden tomar diferentes tipos de datos (ej. textuales, numéricos) durante la ejecución del programa, a diferencia de un <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_de_tipos#Tipado_est%C3%A1tico">sistema de tipos de datos estático</a>, en el que las variables solo pueden tener un tipo de datos durante la ejecución del programa. La mayoría de los lenguajes de tipos dinámicos son también lenguajes interpretados.</p></li>
+<li><p>Cuenta con <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_management#Automated_memory_management">administración automática de memoria</a>: el interpretador se encarga de asignar y administrar la memoria de las variables, sin intervención del programador. Esto incluye un sistema de <a class="reference external" href="https://es.wikipedia.org/wiki/Recolector_de_basura">recolección de basura</a>, que libera la memoria de las variables que no están siendo utilizadas.</p></li>
+<li><p>Soporta varios <a class="reference external" href="https://es.wikipedia.org/wiki/Paradigma_de_programaci%C3%B3n">paradigmas de programación</a>: los paradigmas son estilos o enfoques teóricos de programación. En el caso de Python, incluye <a class="reference external" href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos">programación orientada a objetos</a>, <a class="reference external" href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_imperativa">programación imperativa</a>, <a class="reference external" href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional">programación funcional</a> y <a class="reference external" href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_por_procedimientos">programación procedimental</a>.</p></li>
+<li><p>Es <a class="reference external" href="https://es.wikipedia.org/wiki/Multiplataforma">multiplataforma</a>: puede ejecutarse en los sistemas operativos más populares (ej. Windows, macOS, Linux).</p></li>
 </ul>
 </section>
 <section id="principios-de-diseno">
 <h3>Principios de diseño<a class="headerlink" href="#principios-de-diseno" title="Link to this heading">#</a></h3>
-<p>La filosofía de diseño de Python está resumida en una lista de 19 principios conocida como el <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">Zen de Python</a> que guían el uso del lenguaje. La aplicación de estos principios y el seguimiento de mejores prácticas y de <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_idiom"><em>idioms</em> de programación</a>, como los descritos en <a class="reference external" href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python!</a>, hacen que un programa se considere “pitónico” (<em>pythonic</em>). Los programadores que siguen la filosofía de Python son llamados <a class="reference external" href="https://david.goodger.org/projects/pycon/2007/idiomatic/"><em>pythonists</em>, <em>pythonistas</em> o <em>pythoneers</em></a>.</p>
+<section id="el-zen-de-python">
+<h4>El Zen de Python<a class="headerlink" href="#el-zen-de-python" title="Link to this heading">#</a></h4>
+<p>La filosofía de diseño de Python está resumida en una lista de 19 principios conocida como el <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">Zen de Python</a> que guían el uso del lenguaje.</p>
+</section>
+<section id="guia-de-estilo-para-codigo-python">
+<h4>Guía de estilo para código Python<a class="headerlink" href="#guia-de-estilo-para-codigo-python" title="Link to this heading">#</a></h4>
 <p>Los principios de diseño se reflejan en la <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">guía de estilo para código Python</a>, la cual proporciona una serie de convenciones para la escritura de programas.</p>
+</section>
+<section id="programas-pitonicos">
+<h4>Programas “pitónicos”<a class="headerlink" href="#programas-pitonicos" title="Link to this heading">#</a></h4>
+<p>La aplicación de estos principios y el seguimiento de mejores prácticas y de <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_idiom"><em>idioms</em> de programación</a>, como los descritos en <a class="reference external" href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python!</a>, hacen que un programa se considere “pitónico” (<em>pythonic</em>). Los programadores que siguen la filosofía de Python son llamados <a class="reference external" href="https://david.goodger.org/projects/pycon/2007/idiomatic/"><em>pythonists</em>, <em>pythoneers</em> o pythonistas</a>.</p>
+</section>
 </section>
 <section id="licenciamiento">
 <h3>Licenciamiento<a class="headerlink" href="#licenciamiento" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.python.org/psf/">Python Software Foundation (PSF)</a> es la organización sin fines de lucro que posee los derechos de propiedad intelectual del lenguaje Python y que maneja las licencias de software libre con las que se distribuye. Su misión es <em>“promover, proteger y avanzar el lenguaje de programación Python, así como apoyar y facilitar el crecimiento de una comunidad diversa e internacional de programadores de Python”</em>.</p>
-<p>La implementación de referencia del interpretador de Python, llamada <a class="reference external" href="https://github.com/python/cpython">CPython</a>, es software de <a class="reference external" href="https://en.wikipedia.org/wiki/Open-source_model">código abierto (<em>open source</em>)</a>, lo que facilita que el desarrollo de Python sea conducido por una comunidad de programadores enlazada a través de Internet. Este modelo es seguido por la mayoría de las implementaciones del interpretador de Python. Una muestra muy representativa de este esquema de colaboración es el <a class="reference external" href="https://pypi.python.org">Python Package Index (PyPI)</a>, un repositorio para compartir componentes de software programados con Python, que a la fecha alberga más de 350000 proyectos.</p>
+<p>La implementación de referencia del interpretador de Python, llamada <a class="reference external" href="https://github.com/python/cpython">CPython</a>, es software de <a class="reference external" href="https://es.wikipedia.org/wiki/C%C3%B3digo_abierto">código abierto (<em>open source</em>)</a>, lo que facilita que el desarrollo de Python sea conducido por una comunidad de programadores enlazada a través de Internet. Este modelo es seguido por la mayoría de las implementaciones del interpretador de Python. Una muestra muy representativa de este esquema de colaboración es el <a class="reference external" href="https://pypi.python.org">Python Package Index (PyPI)</a>, un repositorio para compartir componentes de software programados con Python, que a la fecha alberga más de medio millón de proyectos.</p>
 </section>
 <section id="python-2-y-python-3">
 <h3>Python 2 y Python 3<a class="headerlink" href="#python-2-y-python-3" title="Link to this heading">#</a></h3>
@@ -503,48 +527,29 @@ document.write(`
 </section>
 <section id="aplicacion-en-datos-geoespaciales">
 <h2>Aplicación en datos geoespaciales<a class="headerlink" href="#aplicacion-en-datos-geoespaciales" title="Link to this heading">#</a></h2>
-<p>Python ha tomado una gran importancia en el área del desarrollo de aplicaciones geoespaciales debido a su popularidad, “suavidad” de la curva de aprendizaje y abundancia de recursos de educación y consulta (ej. tutoriales, libros, listas de correo, foros de discusión). Todas estas son características que, entre otras, lo hacen muy apropiado para programadores que no son especialistas en ciencias de la computación, como es el caso de muchos de los usuarios de sistemas de información geográfica (SIG) y otros tipos de software geoespacial. De hecho, muchas de estas herramientas han seleccionado a <a class="reference external" href="http://www.mdpi.com/2220-9964/2/1/201">Python como el lenguaje de preferencia para que sus usuarios amplíen o configuren la funcionalidad que ofrecen</a>. Como ejemplos, pueden mencionarse las bibliotecas <a class="reference external" href="http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy/what-is-arcpy-.htm">ArcPy</a> para <a class="reference external" href="https://www.arcgis.com/">ArcGIS</a>, <a class="reference external" href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/">PyQGIS</a> para <a class="reference external" href="https://www.qgis.org/">QGIS</a> y <a class="reference external" href="https://grass.osgeo.org/grass70/manuals/libpython/pygrass_index.html">PyGRASS</a> para <a class="reference external" href="https://grass.osgeo.org/">GRASS GIS</a>.</p>
+<p>Python ha ganado una gran importancia en el área del desarrollo de aplicaciones geoespaciales debido a su popularidad, “suavidad” de la curva de aprendizaje y abundancia de recursos de educación y consulta (ej. tutoriales, libros, listas de correo, foros de discusión). Todas estas son características que, entre otras, lo hacen muy apropiado para programadores que no son especialistas en ciencias de la computación, como es el caso de muchos de los usuarios de <a class="reference external" href="https://es.wikipedia.org/wiki/Sistema_de_informaci%C3%B3n_geogr%C3%A1fica">sistemas de información geográfica (SIG)</a> y otros tipos de software geoespacial. De hecho, muchas de estas herramientas han seleccionado a <a class="reference external" href="http://www.mdpi.com/2220-9964/2/1/201">Python como el lenguaje de preferencia para que sus usuarios amplíen o configuren la funcionalidad que ofrecen</a>. Como ejemplos, pueden mencionarse las bibliotecas <a class="reference external" href="http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy/what-is-arcpy-.htm">ArcPy</a> para <a class="reference external" href="https://www.arcgis.com/">ArcGIS</a>, <a class="reference external" href="https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/">PyQGIS</a> para <a class="reference external" href="https://www.qgis.org/">QGIS</a> y <a class="reference external" href="https://grass.osgeo.org/grass84/manuals/libpython/pygrass_index.html">PyGRASS</a> para <a class="reference external" href="https://grass.osgeo.org/">GRASS GIS</a>.</p>
 <p>En la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-python-gis</span></code>, puede observarse como Python es ampliamente utilizado como lenguaje de <em>scripting</em> en software para manejo de datos geoespaciales.</p>
 <figure class="align-default" id="figure-python-gis">
 <img alt="../../_images/python-gis-software.png" src="../../_images/python-gis-software.png" />
 <figcaption>
-<p><span class="caption-text">Uso de Python en software para manejo de datos geoespaciales. Fuente: <span id="id3">[<a class="reference internal" href="#id48" title="Pietro Zambelli, Sören Gebbert, and Marco Ciolli. Pygrass: An Object Oriented Python Application Programming Interface (API) for Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS). ISPRS International Journal of Geo-Information, 2(1):201–219, March 2013. Number: 1 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/2220-9964/2/1/201 (visited on 2022-01-20), doi:10.3390/ijgi2010201.">ZGC13</a>]</span>.</span><a class="headerlink" href="#figure-python-gis" title="Link to this image">#</a></p>
+<p><span class="caption-text">Uso de Python en software para manejo de datos geoespaciales. Imagen de <span id="id3">[<a class="reference internal" href="#id48" title="Pietro Zambelli, Sören Gebbert, and Marco Ciolli. Pygrass: An Object Oriented Python Application Programming Interface (API) for Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS). ISPRS International Journal of Geo-Information, 2(1):201–219, March 2013. Number: 1 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/2220-9964/2/1/201 (visited on 2022-01-20), doi:10.3390/ijgi2010201.">ZGC13</a>]</span>.</span><a class="headerlink" href="#figure-python-gis" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="herramientas-para-desarrollo">
 <h2>Herramientas para desarrollo<a class="headerlink" href="#herramientas-para-desarrollo" title="Link to this heading">#</a></h2>
-<p>Hay tres principales tipos de herramientas para desarrollar programas en Python: editores de texto, ambientes integrados de desarrollo y <em>notebooks</em>.</p>
-<section id="editores-de-texto">
-<h3>Editores de texto<a class="headerlink" href="#editores-de-texto" title="Link to this heading">#</a></h3>
-<p>Son editores para cualquier tipo de archivo de texto. Aquí se presentan los que proveen algunas facilidades para la edición de código fuente (ej. colores para diferenciar palabras clave o tabulación automática). Son fáciles de utilizar, pero no aportan mayores facilidades para el proceso de desarrollo. Son apropiados para programas pequeños y de no muy alta complejidad. Algunos de los más populares son:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
-<li><p><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a></p></li>
-<li><p><a class="reference external" href="https://atom.io/">Atom</a></p></li>
-<li><p><a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a></p></li>
-<li><p><a class="reference external" href="http://ex-vi.sourceforge.net/">vi</a>/<a class="reference external" href="https://www.vim.org/">vim</a></p></li>
-</ul>
+<p>Hay una gran cantidad de herramientas disponibles para desarrollar programas en Python, incluyendo editores de código fuente, ambientes de desarrollo integrados y cuadernos de notas (<em>notebooks</em>). Entre las más usadas pueden mencionarse:</p>
+<section id="visual-studio-code">
+<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code (VS Code)</a> es un editor de código fuente ligero y multiplataforma desarrollado por Microsoft como software libre. Es ampliamente utilizado debido a su flexibilidad, extensibilidad y rendimiento. Soporta una amplia gama de lenguajes de programación, incluyendo Python, JavaScript, C y C++, entre otros, y ofrece características como autocompletado de código, depuración integrada y control de versiones, usualmente disponibles en herramientas de desarrollo más complejas, como los <a class="reference external" href="https://es.wikipedia.org/wiki/Entorno_de_desarrollo_integrado">ambientes de desarrollo integrados (IDE, <em>Integrated Development Environment</em>)</a>.</p>
+<p>Una de las mayores fortalezas de VS Code es su ecosistema de <a class="reference external" href="https://marketplace.visualstudio.com/VSCode">extensiones</a>, que permite a los usuarios personalizar y expandir sus capacidades según las necesidades de cada proyecto.</p>
+<p>VS Code también permite el desarrollo de cuadernos de notas, como los que se describen en la siguiente sección.</p>
 </section>
-<section id="ambientes-integrados-de-desarrollo">
-<h3>Ambientes integrados de desarrollo<a class="headerlink" href="#ambientes-integrados-de-desarrollo" title="Link to this heading">#</a></h3>
-<p>Un <a class="reference external" href="https://en.wikipedia.org/wiki/Integrated_development_environment">ambiente integrado de desarrollo (<em>Integrated Development Environment</em> [IDE])</a>, es una aplicación informática que provee soporte integrado al proceso de programación. Típicamente, consiste de un editor de texto para el código fuente, <a class="reference external" href="https://en.wikipedia.org/wiki/Build_automation">herramientas para la construcción de archivos ejecutables</a> y un <a class="reference external" href="https://en.wikipedia.org/wiki/Debugger">depurador (<em>debugger</em>)</a>. Facilitan la elaboración de proyectos de mayor tamaño y complejidad. En el caso de Python, los IDE más populares son:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a></p></li>
-<li><p><a class="reference external" href="https://docs.spyder-ide.org/">Spyder</a></p></li>
-</ul>
-</section>
-<section id="notebooks">
-<h3>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h3>
-<p>Son ambientes virtuales que combinan código fuente con texto, gráficos, videos y otros formatos. Se les considera muy apropiados para aprendizaje. El <em>notebook</em> más popular es el <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>, el cual proporciona una interfaz en ambiente web que permite la elaboración de documentos que permiten la ejecución interactiva de comandos en varios lenguajes (Python, R, Julia y Haskell, entre otros) y su documentación con el lenguaje de marcado <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a>.</p>
-<p>La interfaz de un Jupyter Notebook se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-interfaz-jupyter</span></code>.</p>
-<figure class="align-default" id="figure-interfaz-jupyter">
-<img alt="../../_images/jupyter-interface.png" src="../../_images/jupyter-interface.png" />
-<figcaption>
-<p><span class="caption-text">Interfaz de un nuevo Jupyter Notebook.</span><a class="headerlink" href="#figure-interfaz-jupyter" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Un <em>notebook</em> consiste de una secuencia de celdas que pueden llenarse con código fuente o con texto en Markdown, como en el ejemplo de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-jupyter-holamundo</span></code>.</p>
+<section id="jupyter-notebook-y-jupyter-lab">
+<h3>Jupyter Notebook y Jupyter Lab<a class="headerlink" href="#jupyter-notebook-y-jupyter-lab" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> es una aplicación web de código abierto que permite crear y compartir documentos llamados cuadernos de notas o <em>notebooks</em> que combinan código fuente en Python (y otros lenguajes de programación) con texto narrativo en Markdown y visualizaciones como gráficos estadísticos y mapas. Es especialmente popular en el ámbito de la ciencia de datos, el análisis de datos y la investigación académica.</p>
+<p><a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">JupyterLab</a> es la siguiente generación de la interfaz de usuario de Jupyter Notebook y proporciona un entorno de desarrollo más flexible y poderoso. Extiende las capacidades de los Jupyter Notebooks al permitir la carga de múltiples documentos y vistas en diferentes paneles JupyterLab también ofrece un mejor soporte para extensiones y herramientas interactivas.</p>
+<p>La interfaz de un Jupyter Notebook se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-jupyter-holamundo</span></code>.</p>
 <figure class="align-default" id="figure-jupyter-holamundo">
 <img alt="../../_images/jupyter-holamundo.png" src="../../_images/jupyter-holamundo.png" />
 <figcaption>
@@ -555,40 +560,11 @@ document.write(`
 </section>
 <section id="instalacion">
 <h2>Instalación<a class="headerlink" href="#instalacion" title="Link to this heading">#</a></h2>
-<p>El interpretador de Pyhon puede obtenerse de varias formas. Una de la más usuales es en la <a class="reference external" href="https://www.python.org/downloads/">página de descargas de Python.org</a>, en donde pueden encontrarse instaladores para los diferentes sistemas operativos.</p>
-<section id="con-anaconda-miniconda">
-<h3>Con Anaconda/Miniconda<a class="headerlink" href="#con-anaconda-miniconda" title="Link to this heading">#</a></h3>
-<p>En este curso, se utilizará <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>, una distribución libre y de código abierto de Python y de otras herramientas utilizadas para ciencia de datos, como el lenguaje de programación <a class="reference external" href="https://www.r-project.org/">R</a>. Anaconda simplifica el manejo de paquetes, con sus diferentes versiones y dependencias, y está preconfigurada con más de 1500 paquetes preinstalados, lo que elimina la necesidad de aprender a instalar cada uno individualmente. Anaconda incorpora también el administrador de paquetes <a class="reference external" href="https://conda.io/">Conda</a>. Como alternativa a Anaconda, puede utilizarse <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, un instalador reducido de Anaconda.</p>
-<p>La página de descargas de <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a>/<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> proporciona instaladores para las diferentes versiones de Python y de los sistemas operativos (Windows, macOS, Linux). Luego de descargarse la opción deseada, deben seguirse las instrucciones especificadas en la <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">página de documentación de la instalación</a>.</p>
-<p>Seguidamente, se detalla el procedimiento de <a class="reference external" href="https://gdal.org/download.html#conda">instalación mediante Conda</a>, el cual puede ejecutarse desde Linux, macOS o Windows. <a class="reference external" href="https://conda.io/">Conda</a> es un administrador de paquetes que puede instalarse como parte de <a class="reference external" href="https://anaconda.org/">Anaconda</a> o <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> (se recomienda esta última opción, por requerir menos recursos). Entre otras ventajas, conda permite el manejo de <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">ambientes (<em>environments</em>)</a>, cada uno con sus propias versiones de los paquetes instalados.</p>
-<p>Para instalar Python, Jupyter Notebook, y los módulos necesarios para el desarrollo de aplicaciones geoespaciales, ejecute los siguientes comandos desde una terminal:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualización de conda</span>
-conda<span class="w"> </span>update<span class="w"> </span>conda
-
-<span class="c1"># Creación de un ambiente conda llamado geopython (puede usarse cualquier otro nombre)</span>
-conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>geopython
-
-<span class="c1"># Activación del ambiente</span>
-conda<span class="w"> </span>activate<span class="w"> </span>geopython
-
-<span class="c1"># Configuración del ambiente</span>
-conda<span class="w"> </span>config<span class="w"> </span>--env<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
-conda<span class="w"> </span>config<span class="w"> </span>--env<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
-
-<span class="c1"># Instalación de módulos requeridos</span>
-conda<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>python<span class="w"> </span>jupyter<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>plotly<span class="w"> </span>dash<span class="w"> </span>gdal<span class="w"> </span>fiona<span class="w"> </span>shapely<span class="w"> </span>geopandas<span class="w"> </span>rasterio<span class="w"> </span>folium
-
-<span class="c1"># Instalación de módulos opcionales</span>
-conda<span class="w"> </span>install<span class="w"> </span>streamlit
-
-<span class="c1"># Para iniciar la interfaz de Jupyter Notebook</span>
-jupyter<span class="w"> </span>notebook
-
-<span class="c1"># Desactivación del ambiente</span>
-conda<span class="w"> </span>deactivate
-</pre></div>
-</div>
-<p>Una vez instalado el ambiente, puede activarse y desactivarse con <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">geopython</span></code> y <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> respectivamente.</p>
+<p>El interpretador de Pyhon puede obtenerse de varias formas. Una de la más usuales es en la <a class="reference external" href="https://www.python.org/downloads/">página de descargas de Python.org</a>, en donde pueden encontrarse instaladores para los diferentes sistemas operativos. Sin embargo, existen otras opciones como la que se describe en la siguiente sección.</p>
+<section id="con-miniconda-anaconda">
+<h3>Con Miniconda/Anaconda<a class="headerlink" href="#con-miniconda-anaconda" title="Link to this heading">#</a></h3>
+<p>En este curso, se utilizará <a class="reference external" href="https://docs.anaconda.com/miniconda/">Miniconda</a>, una distribución libre y de código abierto de Python y de otras herramientas utilizadas en ciencia de datos. Contiene un instalador mínimo para el sistema de gestión de paquetes y entornos virtuales <a class="reference external" href="https://docs.conda.io">conda</a>. Es una versión reducida de una distribuión más amplia llamada <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>. La instalación inicial de Miniconda incluye solamente conda, el interpretador de Python y unos pocos paquetes adicionales.</p>
+<p>El administrador de paquetes conda permite el manejo de <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">entornos virtuales (<em>environments</em>)</a>, los cuales son ambientes aislados que permiten a los usuarios y desarrolladores manejar sin conflictos diferentes versiones de paquetes, bibliotecas y dependencias para proyectos específicos.</p>
 </section>
 </section>
 <section id="ambientes-de-ejecucion-en-la-nube">
@@ -601,6 +577,28 @@ conda<span class="w"> </span>deactivate
 <section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
 <p>Existen otros ambientes de ejecución en la nube, como <a class="reference external" href="https://mybinder.org/">Binder</a> y <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>.</p>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<section id="instalacion-de-software">
+<h3>Instalación de software<a class="headerlink" href="#instalacion-de-software" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Instale la distribución de Python <a class="reference internal" href="#../software/miniconda.md"><span class="xref myst">Miniconda</span></a>.</p></li>
+<li><p>Cree un entorno virtual para el curso.</p></li>
+<li><p>Instale las extensiones para Python de <a class="reference internal" href="#../software/vscode.md"><span class="xref myst">VS Code</span></a>.</p></li>
+</ol>
+</section>
+<section id="desarrollo-y-ejecucion-de-programas-en-python">
+<h3>Desarrollo y ejecución de programas en Python<a class="headerlink" href="#desarrollo-y-ejecucion-de-programas-en-python" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Escriba un programa en Python llamado <code class="docutils literal notranslate"><span class="pre">imc.py</span></code> para calcular el <a class="reference external" href="https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal">índice de masa corporal (IMC)</a> de una persona (puede usar uno de los ejemplos vistos en el curso) y ejecútelo desde la línea de comandos de Miniconda y desde VS Code. Pruebe las herramientas de depuración de programas (<em>debugging</em>) de VS Code.</p></li>
+<li><p>Escriba un cuaderno de notas para el cálculo del IMC. Agregue encabezados para el título y para secciones de entrada, procesamiento y salida. Distribuya el código fuente en esas secciones. Ejecute el cuaderno de notas en:</p>
+<p>a. Jupyter Notebook.<br />
+b. Jupyter Lab.<br />
+c. VS Code.</p>
+</li>
+</ol>
 </section>
 </section>
 <section id="referencias-bibliograficas">
@@ -671,32 +669,41 @@ conda<span class="w"> </span>deactivate
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajo-previo">Trabajo previo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales">Tutoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecturas">Lecturas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-lenguaje-de-programacion-python">El lenguaje de programación Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historia">Historia</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-caracteristicas-del-lenguaje">Principales características del lenguaje</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-diseno">Principios de diseño</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-zen-de-python">El Zen de Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guia-de-estilo-para-codigo-python">Guía de estilo para código Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#programas-pitonicos">Programas “pitónicos”</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenciamiento">Licenciamiento</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-2-y-python-3">Python 2 y Python 3</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-datos-geoespaciales">Aplicación en datos geoespaciales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-desarrollo">Herramientas para desarrollo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de texto</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-integrados-de-desarrollo">Ambientes integrados de desarrollo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-y-jupyter-lab">Jupyter Notebook y Jupyter Lab</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion">Instalación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-anaconda-miniconda">Con Anaconda/Miniconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-miniconda-anaconda">Con Miniconda/Anaconda</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambientes-de-ejecucion-en-la-nube">Ambientes de ejecución en la nube</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory">Google Colaboratory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-software">Instalación de software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollo-y-ejecucion-de-programas-en-python">Desarrollo y ejecución de programas en Python</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">Referencias bibliográficas</a></li>
