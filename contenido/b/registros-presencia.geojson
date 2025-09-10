@@ -4500,51 +4500,6 @@
                 "eventDate": null,
                 "locality": null
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -84.20736,
-                    10.23619
-                ]
-            },
-            "properties": {
-                "species": "Panthera onca",
-                "eventDate": null,
-                "locality": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -84.04183,
-                    10.59467
-                ]
-            },
-            "properties": {
-                "species": "Panthera onca",
-                "eventDate": null,
-                "locality": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -84.18616,
-                    10.68018
-                ]
-            },
-            "properties": {
-                "species": "Panthera onca",
-                "eventDate": null,
-                "locality": null
-            }
         }
     ]
 }
