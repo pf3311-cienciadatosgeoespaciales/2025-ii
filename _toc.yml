@@ -24,6 +24,9 @@ parts:
     - file: contenido/b/introduccion-python
     - file: contenido/b/lenguaje-python
     - file: contenido/b/api
+  - caption: III - ANÁLISIS ESTADÍSTICO Y VISUALIZACIÓN DE DATOS MEDIANTE PYTHON
+    chapters:
+    - file: contenido/c/pandas
   - caption: EVALUACIONES
     chapters:
     - file: contenido/evaluaciones/tarea-01
