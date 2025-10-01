@@ -27,6 +27,8 @@ parts:
   - caption: III - ANÁLISIS ESTADÍSTICO Y VISUALIZACIÓN DE DATOS MEDIANTE PYTHON
     chapters:
     - file: contenido/c/pandas
+    - file: contenido/c/matplotlib
+    - file: contenido/c/plotly
   - caption: EVALUACIONES
     chapters:
     - file: contenido/evaluaciones/tarea-01
