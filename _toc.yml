@@ -29,6 +29,13 @@ parts:
     - file: contenido/c/pandas
     - file: contenido/c/matplotlib
     - file: contenido/c/plotly
+  - caption: IV - PROCESAMIENTO DE DATOS GEOESPACIALES MEDIANTE PYTHON
+    chapters:
+    - file: contenido/d/modelos-estandares-datos-geoespaciales
+    - file: contenido/d/geopandas
+    - file: contenido/d/ejemplo-analisis-riqueza-especies
+    - file: contenido/d/ejemplo-analisis-densidad-red-vial
+    - file: contenido/d/rasterio
   - caption: EVALUACIONES
     chapters:
     - file: contenido/evaluaciones/tarea-01
