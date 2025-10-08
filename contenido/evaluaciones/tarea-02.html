@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tarea 02 - Análisis de datos geoespaciales mediante Fiona y Shapely &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
+    <title>Tarea 02 - Análisis de datos geoespaciales mediante GeoPandas &#8212; PF-3311 Ciencia de datos geoespaciales 2025-II</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'contenido/evaluaciones/tarea-02';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visual Studio Code" href="../software/vscode.html" />
+    <link rel="prev" title="Tarea 01 - Elaboración de un mapa en QGIS" href="tarea-01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -183,7 +183,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/blob/main/contenido/informacion-general/programa-pf3311-cienciadatosgeoespaciales-2025-ii.pdf">Programa del curso</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">I - Introducción a la ciencia de datos geoespaciales</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">I - INTRODUCCIÓN A LA CIENCIA DE DATOS GEOESPACIALES</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../a/introduccion-ciencia-datos.html">Introducción a la ciencia de datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a/introduccion-ciencia-datos-geoespaciales.html">Introducción a la ciencia de datos geoespaciales</a></li>
@@ -191,10 +191,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../a/qgis-sig-escritorio.html">QGIS: sistema de información geográfica de escritorio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a/fuentes-formatos-datos-geoespaciales.html">Formatos de archivos geoespaciales, fuentes de datos geoespaciales y geoprocesamiento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a/gdal-biblioteca-lectura-escritura-datos-geoespaciales.html">GDAL: biblioteca para lectura y escritura de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/markdown.html">Markdown - lenguaje de marcado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a/git.html">Git - sistema de control de versiones</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II - EL LENGUAJE DE PROGRAMACIÓN PYTHON</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../b/introduccion-python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../b/lenguaje-python.html">El lenguaje Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../b/api.html">Interfaces de programación de aplicaciones (API)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III - ANÁLISIS ESTADÍSTICO Y VISUALIZACIÓN DE DATOS MEDIANTE PYTHON</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../c/pandas.html">pandas: biblioteca para análisis y manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/matplotlib.html">matplotlib: biblioteca para visualización de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/plotly.html">plotly: biblioteca para gráficos interactivos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV - PROCESAMIENTO DE DATOS GEOESPACIALES MEDIANTE PYTHON</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../d/modelos-estandares-datos-geoespaciales.html">Modelos y estándares de datos geoespaciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../d/geopandas.html">geopandas: biblioteca para manipulación y análisis de datos vectoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../d/ejemplo-analisis-riqueza-especies.html">Ejemplo de análisis espacial: riqueza de especies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../d/ejemplo-analisis-densidad-red-vial.html">Ejemplo de análisis espacial: densidad de la red vial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../d/rasterio.html">rasterio: biblioteca para lectura, escritura y análisis de datos raster</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">EVALUACIONES</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tarea-01.html">Tarea 01 - Elaboración de un mapa en QGIS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tarea 02 - Análisis de datos geoespaciales mediante GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">DATOS</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos">Datos en el repositorio GitHub del curso</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">SOFTWARE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/miniconda.html">Miniconda</a></li>
 </ul>
 
     </div>
@@ -380,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tarea 02 - Análisis de datos geoespaciales mediante Fiona y Shapely</h1>
+    <h1>Tarea 02 - Análisis de datos geoespaciales mediante GeoPandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,42 +437,45 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tarea-02-analisis-de-datos-geoespaciales-mediante-fiona-y-shapely">
-<h1>Tarea 02 - Análisis de datos geoespaciales mediante Fiona y Shapely<a class="headerlink" href="#tarea-02-analisis-de-datos-geoespaciales-mediante-fiona-y-shapely" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tarea-02-analisis-de-datos-geoespaciales-mediante-geopandas">
+<h1>Tarea 02 - Análisis de datos geoespaciales mediante GeoPandas<a class="headerlink" href="#tarea-02-analisis-de-datos-geoespaciales-mediante-geopandas" title="Link to this heading">#</a></h1>
 <section id="fecha-de-entrega">
 <h2>Fecha de entrega<a class="headerlink" href="#fecha-de-entrega" title="Link to this heading">#</a></h2>
-<p>La fecha y hora límite para la entrega de esta tarea es <strong>martes 15 de febrero de 2022 a las 16:59</strong>.</p>
+<p>La fecha y hora límite para la entrega de esta tarea es <strong>miércoles 15 de octubre de 2025 a las 17:00</strong>.</p>
 </section>
 <section id="desarrollo">
 <h2>Desarrollo<a class="headerlink" href="#desarrollo" title="Link to this heading">#</a></h2>
-<p>Debe elaborar un <a class="reference external" href="https://es.wikipedia.org/wiki/Mapa_coropl%C3%A9tico">mapa de coropletas</a> que muestre la densidad de la red vial en los cantones de Costa Rica. Los datos deben procesarse mediante un programa en Python que utilice los paquetes <a class="reference external" href="https://github.com/Toblerity/Fiona">Fiona</a> y <a class="reference external" href="https://github.com/shapely/shapely">Shapely</a> para generar un archivo GeoPackage (GPKG) con el resultado. El archivo gráfico del mapa debe generase con <a class="reference external" href="https://qgis.org/">QGIS</a>.</p>
-<p>La densidad de la red vial para un polígono se define como:<br />
-<strong>km de longitud de red vial / km2 de área</strong><br />
-Por ejemplo, si un cantón tiene 500 km de longitud de red vial y un área de 1000 km2, la densidad de su red vial es 0.5.</p>
-<p>Utilice las siguientes capas Web Feature Service (WFS) publicadas por el Instituto Geográfico Nacional (IGN) en el <a class="reference external" href="https://www.snitcr.go.cr/">Sistema Nacional de Información Territorial (SNIT)</a>:</p>
+<p>Debe desarrollar un cuaderno de notas (<em>notebook</em>) que describa un conjunto de datos geoespaciales mediante texto (puede añadir imágenes y otros recursos), así como gráficos y mapas generados mediante código en Python.</p>
+<p>El conjunto de datos debe estar relacionado con algún tema de su interés (ej. su trabajo final de graduación, un proyecto de otro curso), de manera que luego pueda darle continuidad en las tareas siguientes y en el proyecto final.</p>
+<p>En el cuaderno de notas debe incluir:</p>
 <ul class="simple">
-<li><p>Límite cantonal 1:5000</p></li>
-<li><p>Red vial 1:200000</p></li>
+<li><p>Descripción general del conjunto de datos.</p></li>
+<li><p>Descripción de sus principales variables (columnas).</p></li>
+<li><p>Problemas que desea resolver o preguntas que espera contestar con los datos.</p></li>
+<li><p>Dos gráficos estadísticos elaborados con Matplotlib o con Plotly que le ayuden a describir el conjunto de datos.</p></li>
+<li><p>Dos mapas elaborados con Matplotlib o con el método <code class="docutils literal notranslate"><span class="pre">explore()</span></code> de GeoPandas que le ayuden a describir el conjunto de datos.</p></li>
 </ul>
+<p>Estructure el cuaderno de notas con Markdown y procese los datos con la biblioteca GeoPandas. Puede utilizar conjuntos de datos relacionados con los utilizados en clase, pero para responder preguntas diferentes.</p>
 </section>
 <section id="entregables">
 <h2>Entregables<a class="headerlink" href="#entregables" title="Link to this heading">#</a></h2>
-<p>Un archivo comprimido (ej. ZIP) que incluya tres archivos:</p>
+<p>Puede entregar su trabajo:</p>
 <ul class="simple">
-<li><p>El código fuente del programa en un archivo <code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.pynb</span></code> (<em>notebook</em>) o un enlace a un <em>notebook</em> en <a class="reference external" href="https://colab.research.google.com/">Google Colab</a> (en este último caso, debe compartirlo con <code class="docutils literal notranslate"><span class="pre">mfvargas&#64;gmail.com</span></code>). El código debe estar debidamente documentado, de manera que explique el procedimiento seguido.</p></li>
-<li><p>Un archivo GPKG con la capa de cantones y el campo correspondiente a la densidad de la red vial para cada cantón.</p></li>
-<li><p>Un archivo gráfico (ej. PNG, JPG) con el mapa de coropletas correspondiente a la densidad de la red vial en los cantones de Costa Rica. Debe generarlo con <a class="reference external" href="https://qgis.org/">QGIS</a>, a partir del archivo GPKG generado por el programa en Python.</p></li>
+<li><p>En un archivo ZIP que contenga el cuaderno de notas, los datos y cualquier otro archivo que sea necesario.</p></li>
+<li><p>En un cuaderno de notas en Google Colab. En este caso, procure que los datos estén disponibles en una plataforma como GitHub o Google Drive que brinde acceso permanente. Debe brindar acceso para ver y ejecutar el código en el cuaderno.</p></li>
 </ul>
-<p>La entrega debe realizarse a través de la plataforma <a class="reference external" href="https://mediacionvirtual.ucr.ac.cr/">Mediación Virtual</a>.</p>
+<p>La entrega debe realizarse a través de la plataforma Mediación Virtual.</p>
 </section>
 <section id="calificacion">
 <h2>Calificación<a class="headerlink" href="#calificacion" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>70% - Programa en Python que genera el archivo GPKG con la capa de cantones y el campo correspondiente a la densidad de la red vial para cada cantón.</p></li>
-<li><p>15% - Archivo GeoPackage (GPKG) mencionado en el punto anterior. <strong>Se verificará que el programa genere este archivo</strong>.</p></li>
-<li><p>15% - Archivo gráfico con el mapa.</p></li>
+<li><p>Descripción general del conjunto de datos: 10%</p></li>
+<li><p>Descripción de sus principales variables (columnas): 15%</p></li>
+<li><p>Problemas que desea resolver o preguntas que espera contestar con los datos: 15%</p></li>
+<li><p>Gráficos estadísticos: 30% (15% cada una)</p></li>
+<li><p>Mapas: 30% (15% cada uno)</p></li>
 </ul>
-<p><strong>La tarea puede realizarse en grupos de uno, dos o tres estudiantes. En el encabezado del programa, indique los nombres de los integrantes del grupo</strong>.</p>
+<p><strong>Esta tarea puede realizarse individualmente o en parejas</strong>.</p>
 </section>
 </section>
 
@@ -474,6 +509,24 @@ Por ejemplo, si un cantón tiene 500 km de longitud de red vial y un área de 10
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="tarea-01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tarea 01 - Elaboración de un mapa en QGIS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../software/vscode.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visual Studio Code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
