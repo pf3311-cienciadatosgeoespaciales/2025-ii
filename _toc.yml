@@ -39,7 +39,15 @@ parts:
     - external: true
       title: "leafmap: biblioteca para análisis geoespacial y mapas interactivos"
       url: https://colab.research.google.com/drive/1KwW-XvWbmLMWY4NqyShYF1xrCUuldZHK?usp=sharing  
-
+    - external: true
+      title: "Ejemplo de análisis espacial: acceso y visualización de datos climáticos y de incendios forestales"
+      url: https://colab.research.google.com/drive/15drcrKGJMqUcPWT6fND7EsdGYUdFijwy?usp=sharing  
+    - external: true
+      title: "Apache Arrow y lonboard: formato columnar y biblioteca para manejo y visualización de conjuntos de datos grandes"
+      url: https://colab.research.google.com/drive/1yvsqZpbp8e_wK_2dRZDvvk49XcGe0o_e?usp=sharing  
+    - external: true
+      title: "Apache Parquet y DuckDB: formato de archivo columnar y sistema administrador de bases de datos orientados a análisis"
+      url: https://colab.research.google.com/drive/1qNgFk8Ozlm4fg4KkCO00XvWmUqSVA9aQ?usp=sharing
   - caption: EVALUACIONES
     chapters:
     - file: contenido/evaluaciones/tarea-01
