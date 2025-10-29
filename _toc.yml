@@ -48,6 +48,9 @@ parts:
     - external: true
       title: "Apache Parquet y DuckDB: formato de archivo columnar y sistema administrador de bases de datos orientados a análisis"
       url: https://colab.research.google.com/drive/1mjhkIYZZTyLRLGe1yFoZUm5zboP2bSAM?usp=sharing
+  - caption: V - VISUALIZACIÓN Y ANÁLISIS AVANZADOS
+    chapters:
+    - file: contenido/e/streamlit
   - caption: EVALUACIONES
     chapters:
     - file: contenido/evaluaciones/tarea-01
