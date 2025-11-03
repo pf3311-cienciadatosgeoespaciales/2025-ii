@@ -55,6 +55,7 @@ parts:
     chapters:
     - file: contenido/evaluaciones/tarea-01
     - file: contenido/evaluaciones/tarea-02
+    - file: contenido/evaluaciones/tarea-03
   - caption: DATOS
     chapters:
     - url: https://github.com/pf3311-cienciadatosgeoespaciales/2025-ii/tree/main/datos
