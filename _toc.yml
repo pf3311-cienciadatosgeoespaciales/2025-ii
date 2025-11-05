@@ -48,6 +48,9 @@ parts:
     - external: true
       title: "Apache Parquet y DuckDB: formato de archivo columnar y sistema administrador de bases de datos orientados a análisis"
       url: https://colab.research.google.com/drive/1mjhkIYZZTyLRLGe1yFoZUm5zboP2bSAM?usp=sharing
+    - external: true
+      title: "El modelo AlphaEarth Foundations y el conjunto de datos Satellite Embedding"
+      url: https://colab.research.google.com/drive/1tT_-phMJfvwQxBzj6ztK2L-Bj8Rtmsyx?usp=sharing
   - caption: V - VISUALIZACIÓN Y ANÁLISIS AVANZADOS
     chapters:
     - file: contenido/e/streamlit
